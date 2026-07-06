@@ -1,0 +1,1660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Hardware - Trimble Prototype</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="#" onclick="MapsToView('home-view'); return false;" style="text-decoration: none; color: inherit;">
+                <div class="logo">Trimble</div>
+            </a>
+        </div>
+        <div class="nav-middle">
+            <div class="search-bar" style="position: relative;">
+                <div style="position: relative;">
+                    <input type="text" id="search-input" placeholder="Search..." autocomplete="off">
+                    <button id="search-clear-btn" style="display: none; position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; font-size: 16px; color: #9ca3af; cursor: pointer;">✕</button>
+                </div>
+                <div id="search-suggestions" style="display: none; position: absolute; top: 100%; left: 0; right: 0; background-color: #ffffff; border: 1px solid #d1d5db; border-radius: 4px; z-index: 1000; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-top: 4px; overflow: hidden;"></div>
+            </div>
+        </div>
+        <div class="nav-right" id="nav-right-controls" style="transition: margin-right 0.3s ease;">
+            <div class="icon cart-icon">🛒</div>
+            <div class="profile-dropdown-container" style="position: relative;">
+                <div class="icon profile-icon" id="profile-menu-toggle" style="cursor: pointer;">👤</div>
+                <div id="profile-dropdown" style="display: none; position: absolute; right: 0; top: 100%; margin-top: 0.5rem; background: #fff; border: 1px solid #d1d5db; z-index: 2000; width: 220px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <div style="padding: 1rem; border-bottom: 1px solid #e5e7eb; display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                        <div style="width: 48px; height: 48px; background: #e5e7eb; border: 1px solid #d1d5db; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #4b5563;">JS</div>
+                        <div style="font-size: 13px; color: #4b5563; text-align: center;">john_smith@trimble.com</div>
+                    </div>
+                    <div style="padding: 0.5rem 0;">
+                        <div class="dropdown-item" style="padding: 0.5rem 1rem; cursor: pointer; color: #111827; text-align: left;">Account</div>
+                        <div class="dropdown-item" id="nav-orders-link" style="padding: 0.5rem 1rem; cursor: pointer; color: #111827; text-align: left;">Orders</div>
+                        <div class="dropdown-item" style="padding: 0.5rem 1rem; cursor: pointer; color: #111827; text-align: left;">Favorites</div>
+                        <div class="dropdown-item" style="padding: 0.5rem 1rem; cursor: pointer; color: #111827; text-align: left;">Saved carts</div>
+                        <div class="dropdown-item" style="padding: 0.5rem 1rem; cursor: pointer; color: #111827; text-align: left;">Direct entry</div>
+                        <hr style="border: 0; border-top: 1px solid #e5e7eb; margin: 8px 0;">
+                        <div class="dropdown-item" style="padding: 0.5rem 1rem; cursor: pointer; color: #111827; text-align: left;">Log out</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="shop-container">
+        <div id="home-view" class="content-area" style="display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 32px; min-height: 70vh;">
+            <a href="#" onclick="MapsToView('catalog-view'); return false;" class="card" style="text-decoration: none; color: inherit; width: 300px; border: 1px solid #d1d5db; border-radius: 8px; overflow: hidden; background: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <div class="card-image-placeholder" style="background-image: none; padding: 0; height: 200px;">
+                    <img src="assets/gnss-antenna.jpeg" alt="Shop Hardware" style="width: 100%; height: 100%; object-fit: cover; background-color: #f3f4f6; display: block;" />
+                </div>
+                <div class="card-content" style="padding: 1.5rem;">
+                    <h2 style="margin-top: 0;">Shop Hardware</h2>
+                    <p>Description area for Shop Hardware section.</p>
+                </div>
+            </a>
+
+            <a href="#" onclick="MapsToView('gst-tool-view'); return false;" class="card" style="text-decoration: none; color: inherit; width: 300px; border: 1px solid #d1d5db; border-radius: 8px; overflow: hidden; background: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <div class="card-image-placeholder" style="background-image: none; padding: 0; height: 200px;">
+                    <img src="assets/controller.jpg" alt="GST Tool" style="width: 100%; height: 100%; object-fit: cover; background-color: #f3f4f6; display: block;" />
+                </div>
+                <div class="card-content" style="padding: 1.5rem;">
+                    <h2 style="margin-top: 0;">GST Tool</h2>
+                    <p>Description area for GST Tool section.</p>
+                </div>
+            </a>
+        </div>
+
+        <div id="gst-tool-view" class="content-area" style="display: none; padding: 2rem; text-align: center;">
+            <div class="card" style="box-shadow: none; border: none; background: transparent; max-width: 600px; margin: 0 auto;">
+                <h1>GST Tool</h1>
+                <p style="margin-top: 1rem; font-size: 1.2rem;">This is the GST Tool page. (Prototype placeholder)</p>
+                <a href="#" onclick="MapsToView('home-view'); return false;" style="display: inline-block; margin-top: 2rem; padding: 0.75rem 1.5rem; border: 2px solid var(--border-color, #d1d5db); box-shadow: 4px 4px 0px var(--shadow-color, #9ca3af); text-decoration: none; color: inherit; background: var(--bg-color, #fff); width: fit-content; font-weight: bold;">← Back to Home</a>
+            </div>
+        </div>
+
+        <div id="catalog-view" style="display: none; transition: padding-right 0.3s ease;">
+            <div class="shop-header">
+                <h1>Shop Hardware</h1>
+                <select class="sort-dropdown">
+                    <option>Sort by: Featured</option>
+                    <option>Price: Low to High</option>
+                    <option>Price: High to Low</option>
+                </select>
+            </div>
+
+            <div class="shop-layout">
+                <aside class="filters-panel">
+                    <div class="filters-header">
+                        <h2>Filters</h2>
+                        <span class="clear-filters">Clear all</span>
+                    </div>
+
+                    <details class="filter-section" open>
+                        <summary>Industry</summary>
+                        <div class="filter-content">
+                            <label class="filter-item">
+                                <input type="radio" name="industry" checked> All
+                            </label>
+                            <label class="filter-item">
+                                <input type="radio" name="industry"> Geospatial
+                            </label>
+                            <label class="filter-item">
+                                <input type="radio" name="industry"> Civil Construction
+                            </label>
+                            <label class="filter-item">
+                                <input type="radio" name="industry"> Building Construction
+                            </label>
+                        </div>
+                    </details>
+
+                    <details class="filter-section" open>
+                        <summary>Product Type</summary>
+                        <div class="filter-content">
+                            <label class="filter-item"><input type="checkbox"> GNSS Receivers & Smart Antennas</label>
+                            <label class="filter-item"><input type="checkbox"> Total Stations & Scanners</label>
+                            <label class="filter-item"><input type="checkbox"> Controllers & Data Collectors</label>
+                            <label class="filter-item"><input type="checkbox"> On-Machine Radios & Gateways</label>
+                            <label class="filter-item"><input type="checkbox"> Accessories (Power, Brackets, Cases)</label>
+                            <label class="filter-item"><input type="checkbox"> Cables & Harnesses</label>
+                        </div>
+                    </details>
+
+                    <details class="filter-section" open>
+                        <summary>Brand</summary>
+                        <div class="filter-content">
+                            <label class="filter-item"><input type="checkbox"> Trimble</label>
+                            <label class="filter-item"><input type="checkbox"> Spectra Geospatial</label>
+                            <label class="filter-item"><input type="checkbox"> SECO</label>
+                            <label class="filter-item"><input type="checkbox"> Rajant</label>
+                        </div>
+                    </details>
+
+                    <details class="filter-section" open>
+                        <summary>Machine Compatibility</summary>
+                        <div class="filter-content">
+                            <label class="filter-item"><input type="checkbox"> Caterpillar</label>
+                            <label class="filter-item"><input type="checkbox"> John Deere</label>
+                            <label class="filter-item"><input type="checkbox"> Komatsu</label>
+                            <label class="filter-item"><input type="checkbox"> Volvo</label>
+                        </div>
+                    </details>
+
+                    <details class="filter-section" open>
+                        <summary>Systems</summary>
+                        <div class="filter-content">
+                            <label class="filter-item"><input type="checkbox"> Site Positioning Systems (SPS)</label>
+                            <label class="filter-item"><input type="checkbox"> Machine Control Systems (Earthworks/GCS)</label>
+                            <label class="filter-item"><input type="checkbox"> Survey & Optical Systems</label>
+                            <label class="filter-item"><input type="checkbox"> Mobile Mapping & Reality Capture</label>
+                            <label class="filter-item"><input type="checkbox"> Marine Systems</label>
+                        </div>
+                    </details>
+                </aside>
+
+                <section class="products-grid"></section>
+            </div>
+        </div>
+        
+        <aside id="mini-cart-sidebar" style="display: none; background-color: #ffffff; border-left: 1px solid #d1d5db; padding: 1.5rem; flex-direction: column; box-shadow: -2px 0 5px rgba(0,0,0,0.05); overflow-y: auto; overflow-x: hidden;">
+            <h2 style="font-size: 1.5rem; margin-bottom: 1rem; margin-top: 0;">Your Cart Summary</h2>
+            <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 1.2rem; margin-bottom: 1rem;">
+                <span>Subtotal:</span>
+                <span id="mini-cart-subtotal">$0.00</span>
+            </div>
+            <button class="product-btn" id="mini-cart-go-to-cart" style="width: 100%; background-color: #f9f9f9; color: #333; border: 2px solid #333; padding: 0.75rem; margin-bottom: 1rem;">Go to cart</button>
+            <div style="border-bottom: 2px solid #d1d5db; margin-bottom: 1rem;"></div>
+            <div id="mini-cart-items" style="flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 1rem; padding-right: 0.5rem;"></div>
+        </aside>
+
+        <div id="product-detail-view" style="display: none; transition: padding-right 0.3s ease;"></div>
+        
+        <div id="shopping-cart-view" style="display: none;">
+            <div class="cart-header" style="margin-bottom: 2rem;">
+                <a href="#" id="cart-back-to-shop" style="text-decoration: underline; color: #6b7280; font-weight: 600; font-size: 14px; cursor: pointer;">&larr; Continue Shopping</a>
+            </div>
+            <div style="margin-bottom: 2rem;">
+                <h1 style="font-size: 2.5rem; margin: 0;">Shopping Cart</h1>
+                <p style="color: #6b7280; margin-top: 0.5rem;" id="cart-item-count-text">0 items in your cart</p>
+            </div>
+            <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap;">
+                <div id="cart-items-container" style="flex: 2; display: flex; flex-direction: column; gap: 1rem; min-width: 300px;"></div>
+                
+                <div style="flex: 1; border: 2px solid var(--border-color); padding: 1.5rem; background: #fff; position: sticky; top: 100px; min-width: 300px;">
+                    <h2 style="margin-top: 0; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1.5rem;">Order Summary</h2>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                        <span>Subtotal</span>
+                        <strong id="cart-subtotal">$0.00</strong>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                        <span>Estimated Tax (8.25%)</span>
+                        <strong id="cart-tax">$0.00</strong>
+                    </div>
+                    <div style="margin-top: 8px; margin-bottom: 12px;">
+                        <div style="display: flex; gap: 0.5rem;">
+                            <input type="text" id="promo-code-input" placeholder="Enter contract/promo code" style="flex: 1; padding: 0.5rem; border: 1px solid #d1d5db; border-radius: 4px;">
+                            <button id="apply-promo-btn" class="product-btn" style="background-color: #fff; color: #111827; border: 2px solid #111827; padding: 0.5rem 1rem;">Apply</button>
+                        </div>
+                        <div id="promo-code-message" style="display: none; color: #16a34a; font-size: 0.9rem; margin-top: 0.5rem;"></div>
+                    </div>
+                    <div style="border-top: 2px solid var(--border-color); margin: 1rem 0;"></div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 2rem; font-size: 1.25rem;">
+                        <strong>Total</strong>
+                        <strong id="cart-total">$0.00</strong>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <button id="proceed-to-checkout-btn" class="product-btn" style="width: 100%; background-color: #111827; color: #fff; border: 2px solid #111827;">Proceed to Checkout</button>
+                        <button class="product-btn" style="width: 100%; background-color: #f9f9f9; border: 2px solid var(--border-color); color: var(--text-color);">Save Cart</button>
+                        <button class="product-btn" style="width: 100%; background-color: #f9f9f9; border: 2px solid var(--border-color); color: var(--text-color);">Download Quote</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="checkout-view" style="display: none; padding-bottom: 4rem;">
+            <div style="margin-bottom: 2rem;">
+                <a href="#" id="checkout-back-to-cart" style="text-decoration: underline; color: #1e40af; font-weight: 600; font-size: 14px; cursor: pointer; display: inline-block; margin-bottom: 1rem;">&larr; Back to cart</a>
+                <h1 style="font-size: 2.5rem; margin: 0 0 1rem 0;">Checkout</h1>
+                <div style="display: flex; gap: 2rem; border-bottom: 1px solid #d1d5db; padding-bottom: 0.5rem;">
+                    <div id="tab-standard-checkout" style="font-weight: bold; color: #111827; border-bottom: 2px solid #111827; padding-bottom: 0.5rem; margin-bottom: -0.5rem; cursor: pointer;">Standard checkout</div>
+                    <div id="tab-multiple-locations" style="color: #6b7280; padding-bottom: 0.5rem; margin-bottom: -0.5rem; cursor: pointer;">Ship to multiple locations</div>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap;">
+                <div id="standard-checkout-column" style="flex: 2; display: flex; flex-direction: column; gap: 2rem; min-width: 300px;">
+                    <div style="border: 2px solid var(--border-color); padding: 1.5rem; background: #fff;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <h2 style="margin: 0; font-size: 1.5rem;">Shipping Address</h2>
+                            <a href="#" id="change-address-link" class="change-action" style="color: #1e40af; font-weight: 600; font-size: 14px; text-decoration: underline;">Change address</a>
+                        </div>
+                        <div id="active-shipping-address" style="color: #4b5563; line-height: 1.5;">
+                            California warehouse, 1234 Construction Ave, San Francisco, CA 97201, (415) 555-0123
+                        </div>
+                    </div>
+
+                    <div style="border: 2px solid var(--border-color); padding: 1.5rem; background: #fff;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <h2 style="margin: 0; font-size: 1.5rem; font-weight: bold;">Carrier</h2>
+                            <a href="#" id="change-carrier-link" class="change-action" style="color: #1e40af; font-weight: 600; font-size: 14px; text-decoration: underline;">Change carrier</a>
+                        </div>
+                        <div style="color: #4b5563; line-height: 1.5;">
+                            <div id="active-carrier-name">FedEx Corporate Freight (Standard Ground Layout)</div>
+                            <div style="color: #6b7280; font-size: 0.875rem; margin-top: 0.25rem;">Account Number: TRM-FEDX-993812</div>
+                        </div>
+                    </div>
+
+                    <div style="border: 2px solid var(--border-color); padding: 1.5rem; background: #fff;">
+                        <h2 style="margin: 0 0 1rem 0; font-size: 1.5rem;">Payment Information</h2>
+                        <div style="font-weight: bold; margin-bottom: 1rem; color: #111827;">Payment Method: Corporate Account Invoice Reference</div>
+                        <ul style="list-style: none; padding: 0; margin: 0; color: #4b5563; line-height: 1.8;">
+                            <li><strong>Billing Account:</strong> Trimble Civil-Corp #98344</li>
+                            <li><strong>Payment Terms:</strong> Net 30 Days</li>
+                            <li><strong>Authorized Buyer Profile:</strong> Active Session User</li>
+                        </ul>
+                    </div>
+
+                    <div style="border: 2px solid var(--border-color); padding: 1.5rem; background: #fff;">
+                        <h2 style="margin: 0 0 1rem 0; font-size: 1.5rem;">Order Items</h2>
+                        <div id="checkout-items-container" style="display: flex; flex-direction: column; gap: 1rem;"></div>
+                    </div>
+                </div>
+
+                <div id="multiple-locations-column" style="flex: 2; display: none; flex-direction: column; gap: 2rem; min-width: 300px;">
+                    <div style="border: 2px solid var(--border-color); padding: 1.5rem; background: #fff;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <h2 style="margin: 0; font-size: 1.5rem;">Assign items to addresses</h2>
+                            <a href="#" style="color: #1e40af; font-weight: 600; font-size: 14px; text-decoration: underline;">+ New address</a>
+                        </div>
+                        
+                        <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 1.5rem;">
+                            <label style="display: flex; align-items: flex-start; padding: 1rem; border: 2px solid var(--border-color); cursor: pointer; background-color: #fff;">
+                                <input type="radio" name="warehouse-selection" value="California warehouse" checked style="margin-right: 1rem; margin-top: 0.25rem; width: 18px; height: 16px;">
+                                <div>
+                                    <div style="font-weight: bold; color: #111827;">California warehouse</div>
+                                    <div style="color: #6b7280; font-size: 0.875rem; margin-top: 0.25rem; line-height: 1.4;">
+                                        1234 Construction Ave<br>San Francisco, CA 97201<br>(415) 555-0123
+                                    </div>
+                                </div>
+                            </label>
+                            <label style="display: flex; align-items: flex-start; padding: 1rem; border: 2px solid var(--border-color); cursor: pointer; background-color: #fff;">
+                                <input type="radio" name="warehouse-selection" value="Colorado warehouse" style="margin-right: 1rem; margin-top: 0.25rem; width: 18px; height: 16px;">
+                                <div>
+                                    <div style="font-weight: bold; color: #111827;">Colorado warehouse</div>
+                                    <div style="color: #6b7280; font-size: 0.875rem; margin-top: 0.25rem; line-height: 1.4;">
+                                        5678 Mountain Rd<br>Denver, CO 80202<br>(303) 555-9876
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+
+                        <h3 style="margin: 0 0 1rem 0; font-size: 1.1rem; font-weight: bold;">Select items to ship to this address</h3>
+                        <div id="unassigned-items-container" style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.5rem;"></div>
+
+                        <button id="assign-items-btn" class="product-btn" style="width: 100%; background-color: #2563eb; color: #fff; border: 2px solid #2563eb;">Assign selected items</button>
+                    </div>
+
+                    <div id="shipping-assignments-container" style="display: flex; flex-direction: column; gap: 2rem;"></div>
+
+                    <div style="border: 2px solid var(--border-color); padding: 1.5rem; background: #fff;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <h2 style="margin: 0; font-size: 1.5rem; font-weight: bold;">Carrier</h2>
+                            <a href="#" id="change-carrier-link-multiple" class="change-action" style="color: #1e40af; font-weight: 600; font-size: 14px; text-decoration: underline;">Change carrier</a>
+                        </div>
+                        <div style="color: #4b5563; line-height: 1.5;">
+                            <div id="active-carrier-name-multiple">FedEx Corporate Freight (Standard Ground Layout)</div>
+                            <div style="color: #6b7280; font-size: 0.875rem; margin-top: 0.25rem;">Account Number: TRM-FEDX-993812</div>
+                        </div>
+                    </div>
+
+                    <div style="border: 2px solid var(--border-color); padding: 1.5rem; background: #fff;">
+                        <h2 style="margin: 0 0 1rem 0; font-size: 1.5rem;">Payment Information</h2>
+                        <div style="font-weight: bold; margin-bottom: 1rem; color: #111827;">Payment Method: Corporate Account Invoice Reference</div>
+                        <ul style="list-style: none; padding: 0; margin: 0; color: #4b5563; line-height: 1.8;">
+                            <li><strong>Billing Account:</strong> Trimble Civil-Corp #98344</li>
+                            <li><strong>Payment Terms:</strong> Net 30 Days</li>
+                            <li><strong>Authorized Buyer Profile:</strong> Active Session User</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="flex: 1; border: 2px solid var(--border-color); padding: 1.5rem; background: #fff; position: sticky; top: 100px; min-width: 300px;">
+                    <h2 style="margin-top: 0; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1.5rem;">Order Summary</h2>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                        <span>Subtotal</span>
+                        <strong id="checkout-summary-subtotal">$0.00</strong>
+                    </div>
+                    <div id="checkout-summary-discount-row" style="display: none; justify-content: space-between; margin-bottom: 1rem; color: #16a34a;">
+                        <span>Discount</span>
+                        <strong id="checkout-summary-discount">-$0.00</strong>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                        <span>Estimated Tax (8.25%)</span>
+                        <strong id="checkout-summary-tax">$0.00</strong>
+                    </div>
+                    <div style="border-top: 2px solid var(--border-color); margin: 1rem 0;"></div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 2rem; font-size: 1.25rem;">
+                        <strong>Total</strong>
+                        <strong id="checkout-summary-total">$0.00</strong>
+                    </div>
+                    <button class="product-btn" id="place-order-btn" style="width: 100%; background-color: #111827; color: #fff; border: 2px solid #111827; margin-bottom: 1rem;">Place order</button>
+                    <div id="split-shipping-status" style="display: none; text-align: center; color: #4b5563; font-weight: bold; margin-bottom: 1rem; padding: 1rem; background-color: #f3f4f6; border-radius: 0.25rem;">
+                        Items Assigned: <span id="items-assigned-count">0</span> / <span id="items-total-count">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="confirmation-view" style="display: none; padding-bottom: 4rem;">
+            <div style="margin-bottom: 2rem;">
+                <a href="#" id="confirmation-back-to-catalog" style="text-decoration: underline; color: #4b5563; font-weight: bold; cursor: pointer; display: inline-block; margin-bottom: 1rem;">&larr; Return to Hardware Catalog</a>
+                <h1 style="font-size: 2.5rem; margin: 0 0 1rem 0; font-weight: bold;">Order Confirmation</h1>
+                <p id="confirmation-subtitle" style="color: #4b5563; font-size: 1.1rem; margin: 0;">We've received your request! Your order is currently processing. We're keeping an eye on it and will update with your tracking number the moment it's approved.</p>
+            </div>
+
+            <div style="border: 2px solid var(--border-color); padding: 2rem; background: #fff; max-width: 800px;">
+                <h2 style="margin: 0 0 0.5rem 0; font-size: 1.25rem; font-weight: 600; color: #111827;">Details</h2>
+                <div id="dynamic-order-number" style="font-weight: normal; color: #374151; margin-bottom: 1.5rem; font-size: 1.1rem;">Order #TRM-2026-886663</div>
+                
+                <div style="display: flex; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem;">
+                    <div id="confirmation-arriving-block" style="flex: 1; min-width: 250px; color: #4b5563; line-height: 1.5;">
+                        <strong style="color: #111827;">Arriving:</strong> <span id="dynamic-delivery-time"></span>
+                    </div>
+                    <div style="flex: 1; min-width: 250px; color: #4b5563; line-height: 1.5;">
+                        <strong style="color: #111827;">Ship to:</strong> <span id="dynamic-ship-to">California warehouse, 1234 Construction Ave, San Francisco, CA 97201</span>
+                    </div>
+                </div>
+
+                <div>
+                    <button id="view-manage-order-btn" class="product-btn" style="background-color: #f9f9f9; color: var(--text-color); border: 2px solid var(--border-color); padding: 0.75rem 2rem; font-weight: bold;">View or manage order</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="order-details-view" style="display: none; padding-bottom: 4rem;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem;">
+                <div>
+                    <a href="#" id="order-details-back-to-catalog" style="text-decoration: underline; color: #4b5563; font-weight: bold; font-size: 12px; cursor: pointer; display: inline-block; margin-bottom: 1rem;">&larr; Back to Hardware Catalog</a>
+                    <h1 style="font-size: 2.5rem; margin: 0 0 0.5rem 0; font-weight: bold;">Order Details</h1>
+                    <p style="color: #4b5563; font-size: 1.1rem; margin: 0;" id="order-details-metadata">Order placed: [Current Date] | Order #[OrderNum]</p>
+                </div>
+                <div>
+                    <button id="order-details-view-invoice-btn" class="product-btn" style="background-color: transparent; color: #111827; border: 2px solid #111827; padding: 0.5rem 1.5rem;">View invoice</button>
+                </div>
+            </div>
+
+            <div id="order-details-pending-banner"></div>
+
+            <div style="display: flex; flex-wrap: wrap; border: 2px solid var(--border-color); background: #fff; margin-bottom: 2rem;">
+                <div style="flex: 1; min-width: 250px; padding: 1.5rem; border-right: 2px solid var(--border-color); box-sizing: border-box;">
+                    <h3 style="margin-top: 0; margin-bottom: 1rem; font-size: 1.1rem;">Shipping</h3>
+                    <div style="color: #4b5563; line-height: 1.5; margin-bottom: 1rem;">
+                        <strong>Ship to:</strong> <span id="order-details-ship-to-summary">Multiple Locations</span><br/>
+                        <strong>Carrier:</strong> <span id="order-details-carrier">FedEx Corporate Freight...</span>
+                    </div>
+                </div>
+                <div style="flex: 1; min-width: 250px; padding: 1.5rem; border-right: 2px solid var(--border-color); box-sizing: border-box;">
+                    <h3 style="margin-top: 0; margin-bottom: 1rem; font-size: 1.1rem;">Payment method</h3>
+                    <div style="color: #4b5563; line-height: 1.5; margin-bottom: 1rem;">
+                        <strong>Payment Method:</strong> Corporate Account Invoice Reference<br>
+                        <strong>Billing Account:</strong> Trimble Civil-Corp #98344<br>
+                        <strong>Payment Terms:</strong> Net 30 Days<br>
+                    </div>
+                </div>
+                <div style="flex: 1; min-width: 250px; padding: 1.5rem; box-sizing: border-box;">
+                    <h3 style="margin-top: 0; margin-bottom: 1rem; font-size: 1.1rem;">Order Summary</h3>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; color: #4b5563;">
+                        <span>Item(s) Subtotal:</span>
+                        <span id="order-details-subtotal">$0.00</span>
+                    </div>
+                    <div id="order-details-discount-row" style="display: none; justify-content: space-between; margin-bottom: 0.5rem; color: #16a34a;">
+                        <span>Discount:</span>
+                        <span id="order-details-discount">-$0.00</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; color: #4b5563;">
+                        <span>Shipping & Handling:</span>
+                        <span id="order-details-shipping">$0.00</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; color: #4b5563;">
+                        <span>Total before tax:</span>
+                        <span id="order-details-pretax">$0.00</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 1rem; color: #4b5563;">
+                        <span>Estimated tax to be collected:</span>
+                        <span id="order-details-tax">$0.00</span>
+                    </div>
+                    <div style="border-top: 1px solid var(--border-color); margin-bottom: 1rem;"></div>
+                    <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 1.1rem;">
+                        <span>Grand Total:</span>
+                        <span id="order-details-total">$0.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="order-details-shipments-container" style="display: flex; flex-direction: column; gap: 2rem;"></div>
+        </div>
+
+        <div id="address-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); justify-content: center; align-items: center; z-index: 1000; padding: 1rem;">
+            <div style="background: white; padding: 2rem; border: 2px solid var(--border-color); box-shadow: 6px 6px 0 rgba(0,0,0,0.2); width: 100%; max-width: 500px; position: relative;">
+                <button id="close-address-modal" style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer;">&times;</button>
+                <h2 style="margin-top: 0; margin-bottom: 1.5rem;">Select Shipping Address</h2>
+                <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.5rem;">
+                    <div class="address-option" style="border: 2px solid var(--border-color); padding: 1rem; cursor: pointer; transition: background-color 0.2s;">
+                        <strong>California warehouse</strong><br>1234 Construction Ave, San Francisco, CA 97201<br>(415) 555-0123
+                    </div>
+                    <div class="address-option" style="border: 2px solid var(--border-color); padding: 1rem; cursor: pointer; transition: background-color 0.2s;">
+                        <strong>Texas facility</strong><br>88 Industrial Blvd, Austin, TX 78701<br>(512) 555-0987
+                    </div>
+                </div>
+                <button class="product-btn" style="width: 100%; background-color: #fff; color: #111827; border: 2px solid var(--border-color);">Add new address</button>
+            </div>
+        </div>
+
+        <div id="orders-history-view" style="display: none; padding-bottom: 4rem;">
+            <a href="#" id="orders-back-to-catalog" style="text-decoration: underline; color: #4b5563; font-weight: bold; cursor: pointer; display: inline-block; margin-bottom: 1rem;">&larr; Back to Hardware Catalog</a>
+            <h1 style="font-size: 2rem; margin-bottom: 2rem; color: #111827;">Your Orders</h1>
+            <div id="orders-history-container" style="display: flex; flex-direction: column; gap: 2rem;"></div>
+        </div>
+
+        <div id="invoice-view" style="display: none; padding: 24px; max-width: 800px; margin: 0 auto; background: #ffffff;"></div>
+    </main>
+
+    <script>
+        // Global State Configuration
+        let currentActiveView = 'home-view';
+        let cartNavigationSource = 'home-view';
+        let ordersNavigationSource = 'catalog-view';
+        let pdpNavigationSource = 'catalog-view';
+        let previousProductId = null;
+
+        // Global Dynamic View Controller Router
+        function MapsToView(viewId) {
+            if (viewId === 'product-detail-view' && currentActiveView !== 'product-detail-view') {
+                pdpNavigationSource = 'catalog-view';
+                previousProductId = null;
+            }
+
+            updateNavbarCartBadge();
+            
+            if (viewId !== 'checkout-view' && viewId !== 'confirmation-view') {
+                currentActiveView = viewId;
+            }
+
+            const views = [
+                'home-view', 'gst-tool-view', 'catalog-view', 'product-detail-view',
+                'shopping-cart-view', 'checkout-view', 'confirmation-view',
+                'order-details-view', 'orders-history-view', 'invoice-view'
+            ];
+            
+            views.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.style.display = 'none';
+            });
+            
+            const target = document.getElementById(viewId);
+            if (target) {
+                target.style.display = 'block';
+                if (viewId === 'home-view') {
+                    target.style.display = 'flex';
+                }
+            }
+            
+            // Contextual Mini-Cart Sidebar Visibilities Engine
+            const miniCart = document.getElementById('mini-cart-sidebar');
+            if (miniCart) {
+                if (['catalog-view', 'product-detail-view'].includes(viewId) && cart.length > 0) {
+                    miniCart.style.display = 'flex';
+                    document.getElementById('nav-right-controls').style.marginRight = '230px';
+                    document.getElementById('catalog-view').style.paddingRight = '230px';
+                    document.getElementById('product-detail-view').style.paddingRight = '230px';
+                } else {
+                    miniCart.style.display = 'none';
+                    document.getElementById('nav-right-controls').style.marginRight = '0px';
+                    if (document.getElementById('catalog-view')) document.getElementById('catalog-view').style.paddingRight = '0px';
+                    if (document.getElementById('product-detail-view')) document.getElementById('product-detail-view').style.paddingRight = '0px';
+                }
+            }
+        }
+
+        const products = [
+            { id: 1, name: "Trimble R980 Integrated GNSS Receiver", industry: "Geospatial", system: "Survey & Optical Systems", type: "GNSS Receivers & Smart Antennas", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Premium integrated GNSS receiver for professional surveying.", price: 14500, estimatedDelivery: "Less than 10 days" },
+            { id: 2, name: "Trimble R12i GNSS Receiver", industry: "Geospatial", system: "Survey & Optical Systems", type: "GNSS Receivers & Smart Antennas", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "GNSS receiver with IMU tilt compensation.", price: 16200, estimatedDelivery: "Less than 20 days" },
+            { id: 3, name: "Trimble R780 Smart Antenna", industry: "Civil Construction", system: "Site Positioning Systems (SPS)", type: "GNSS Receivers & Smart Antennas", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Rugged smart antenna built for tough jobsite conditions.", price: 11800, estimatedDelivery: "Less than 30 days" },
+            { id: 4, name: "Trimble R750 Modular GNSS Receiver", industry: "Civil Construction", system: "Site Positioning Systems (SPS)", type: "GNSS Receivers & Smart Antennas", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Modular infrastructure and base station receiver.", price: 13400, estimatedDelivery: "Less than 10 days" },
+            { id: 5, name: "Trimble S5 Robotic Total Station", industry: "Geospatial", system: "Survey & Optical Systems", type: "Total Stations & Scanners", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Reliable robotic total station for everyday surveying tasks.", price: 24500, estimatedDelivery: "Less than 20 days" },
+            { id: 6, name: "Trimble Ri Automated Total Station", industry: "Building Construction", system: "Survey & Optical Systems", type: "Total Stations & Scanners", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Scalable automated layout station for fast workflows.", price: 19800, estimatedDelivery: "Less than 30 days" },
+            { id: 7, name: "Trimble RTS773 Robotic Total Station", industry: "Building Construction", system: "Survey & Optical Systems", type: "Total Stations & Scanners", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Robotic total station engineered for building layout.", price: 27900, estimatedDelivery: "Less than 10 days" },
+            { id: 8, name: "Trimble X7 3D Laser Scanner", industry: "Building Construction", system: "Mobile Mapping & Reality Capture", type: "Total Stations & Scanners", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "High-speed 3D laser scanning system with auto-calibration.", price: 34000, estimatedDelivery: "Less than 20 days" },
+            { id: 13, name: "Trimble TSC7 Field Controller", industry: "Geospatial", system: "Survey & Optical Systems", type: "Controllers & Data Collectors", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Rugged field controller featuring a built-in keyboard.", price: 6200, estimatedDelivery: "Less than 10 days" },
+            { id: 14, name: "Trimble TSC5 Controller", industry: "Geospatial", system: "Survey & Optical Systems", type: "Controllers & Data Collectors", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Lightweight, Android-based rugged field controller.", price: 4100, estimatedDelivery: "Less than 20 days" },
+            { id: 15, name: "Trimble T100 Tablet", industry: "Civil Construction", system: "Site Positioning Systems (SPS)", type: "Controllers & Data Collectors", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "High-performance 10-inch rugged field tablet.", price: 5800, estimatedDelivery: "Less than 30 days" },
+            { id: 16, name: "Trimble T7 Tablet", industry: "Building Construction", system: "Survey & Optical Systems", type: "Controllers & Data Collectors", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Rugged 7-inch multi-touch construction tablet.", price: 4700, estimatedDelivery: "Less than 10 days" },
+            { id: 18, name: "Trimble TDL450B Radio Modem", industry: "Civil Construction", system: "Site Positioning Systems (SPS)", type: "On-Machine Radios & Gateways", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "External UHF data link radio for broadcasting base corrections.", price: 3200, estimatedDelivery: "Less than 20 days" },
+            { id: 19, name: "Trimble SNM941 Connected Site Gateway", industry: "Civil Construction", system: "Machine Control Systems (Earthworks/GCS)", type: "On-Machine Radios & Gateways", brand: "Trimble", machineCompatibility: "Universal", description: "Telematics and cellular gateway for heavy construction equipment.", price: 2100, estimatedDelivery: "Less than 30 days" },
+            { id: 22, name: "Trimble Dual Slot Battery Charger", industry: "Geospatial", system: "Survey & Optical Systems", type: "Accessories (Power, Brackets, Cases)", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Dual slot smart charger for field batteries.", price: 450, estimatedDelivery: "Less than 20 days" },
+            { id: 23, name: "Trimble Li-Ion Battery Pack (7.4V)", industry: "Geospatial", system: "Survey & Optical Systems", type: "Accessories (Power, Brackets, Cases)", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Rechargeable high-capacity field battery.", price: 220, estimatedDelivery: "Less than 30 days" },
+            { id: 24, name: "SECO 2-Meter Carbon Fiber Rover Pole", industry: "Geospatial", system: "Survey & Optical Systems", type: "Accessories (Power, Brackets, Cases)", brand: "SECO", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Lightweight fixed-height survey pole.", price: 380, estimatedDelivery: "Less than 10 days" },
+            { id: 25, name: "SECO Heavy Duty Aluminum Tripod", industry: "Civil Construction", system: "Site Positioning Systems (SPS)", type: "Accessories (Power, Brackets, Cases)", brand: "SECO", machineCompatibility: "None (Pole/Tripod Mounted)", description: "High-stability tripod for base stations.", price: 290, estimatedDelivery: "Less than 20 days" },
+            { id: 26, name: "Trimble Extended Radio Antenna", industry: "Civil Construction", system: "Site Positioning Systems (SPS)", type: "Accessories (Power, Brackets, Cases)", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "450 MHz whip antenna designed to maximize radio range.", price: 150, estimatedDelivery: "Less than 30 days" },
+            { id: 28, name: "Trimble GPS-to-Radio Lemo Cable (0.3m)", industry: "Civil Construction", system: "Site Positioning Systems (SPS)", type: "Cables & Harnesses", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Connects an R750 Base Receiver to a TDL450B radio.", price: 340, estimatedDelivery: "Less than 20 days" },
+            { id: 29, name: "Trimble Heavy Duty Multi-Battery Power Cable", industry: "Civil Construction", system: "Site Positioning Systems (SPS)", type: "Cables & Harnesses", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Field-ready power cables for base configurations.", price: 410, estimatedDelivery: "Less than 30 days" },
+            { id: 30, name: "Trimble Transport Case", industry: "Civil Construction", system: "Site Positioning Systems (SPS)", type: "Accessories (Power, Brackets, Cases)", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Hard-shell carrying case for R780 tracking systems.", price: 550, estimatedDelivery: "Less than 10 days" },
+            { id: 31, name: "Trimble Earthworks Dozer Dual GNSS Kit", industry: "Civil Construction", system: "Machine Control Systems (Earthworks/GCS)", type: "GNSS Receivers & Smart Antennas", brand: "Trimble", machineCompatibility: "Caterpillar (Cat Grade/AccuGrade)", description: "Premium 3D grade control kit for Dozers. Includes core display and tracking components.", isKit: true, keywords: ["dozer", "earthworks", "3d machine guidance kit"], price: 54000, estimatedDelivery: "Less than 20 days" },
+            { id: 32, name: "Trimble EC520-W System Controller", industry: "Civil Construction", system: "Machine Control Systems (Earthworks/GCS)", type: "On-Machine Radios & Gateways", brand: "Trimble", machineCompatibility: "Universal", description: "Brain unit controller component that processes 3D design models map data dynamically.", partOfKit: 31, kitDetails: "Core 3D Processing Unit / Cab Mount", price: 12500, estimatedDelivery: "Less than 30 days" },
+            { id: 33, name: "Trimble VM430 Valve Module", industry: "Civil Construction", system: "Machine Control Systems (Earthworks/GCS)", type: "Cables & Harnesses", brand: "Trimble", machineCompatibility: "Caterpillar (Cat Grade/AccuGrade)", description: "Proportional hydraulic control valve interface driving auto-blade adjustments.", partOfKit: 31, kitDetails: "Hydraulic Control Interface", price: 4200, estimatedDelivery: "Less than 10 days" },
+            { id: 34, name: "Trimble Dozer Dual GNSS Blade Harness", industry: "Civil Construction", system: "Machine Control Systems (Earthworks/GCS)", type: "Cables & Harnesses", brand: "Trimble", machineCompatibility: "John Deere Compatibility", description: "Rugged master wiring spine routing data lines securely across dozer blade masts.", partOfKit: 31, kitDetails: "Dual-Mast Blade Mast Routing Spine", price: 1850, estimatedDelivery: "Less than 20 days" },
+            { id: 17, name: "Trimble TD520 Display", industry: "Civil Construction", system: "Machine Control Systems (Earthworks/GCS)", type: "Controllers & Data Collectors", brand: "Trimble", machineCompatibility: "Caterpillar (Cat Grade/AccuGrade)", description: "In-cab high-definition touchscreen display running Earthworks field software.", partOfKit: 31, kitDetails: "In-Cab Touchscreen Command Console", price: 8900, estimatedDelivery: "Less than 30 days" },
+            { id: 10, name: "Trimble MS995 GNSS Smart Antenna", industry: "Civil Construction", system: "Machine Control Systems (Earthworks/GCS)", type: "GNSS Receivers & Smart Antennas", brand: "Trimble", machineCompatibility: "Caterpillar (Cat Grade/AccuGrade)", description: "Shock-isolated tracking antenna engineered for extreme machine vibration environments.", partOfKit: 31, kitDetails: "Blade Tracking Antenna - Setup Requires 2", price: 12200, estimatedDelivery: "Less than 10 days" },
+            { id: 20, name: "Trimble SNR430 On-Machine Radio", industry: "Civil Construction", system: "Machine Control Systems (Earthworks/GCS)", type: "On-Machine Radios & Gateways", brand: "Trimble", machineCompatibility: "Caterpillar (Cat Grade/AccuGrade)", description: "Heavy duty data radio providing highly stable wireless site RTK correction telemetry.", partOfKit: 31, kitDetails: "Site Data Link Communication Radio", price: 4400, estimatedDelivery: "Less than 20 days" },
+            { id: 40, name: "Trimble SPS855 Site Positioning Base Station Kit", industry: "Civil Construction", system: "Site Positioning Systems (SPS)", type: "GNSS Receivers & Smart Antennas", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Complete rugged base station kit for broadcasting reliable jobsite RTK corrections.", isKit: true, keywords: ["base station", "sps855"], price: 19500, estimatedDelivery: "Less than 30 days" },
+            { id: 50, name: "Trimble S5 Robotic Total Station Survey Kit", industry: "Geospatial", system: "Survey & Optical Systems", type: "Total Stations & Scanners", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "All-in-one motorized robotic optical measurement kit tailored for land surveying teams.", isKit: true, keywords: ["robotic kit", "s5"], price: 31000, estimatedDelivery: "Less than 30 days" },
+            { id: "spectra-sp85", name: "Spectra Geospatial SP85 GNSS Receiver", brand: "Spectra Geospatial", type: "GNSS Receivers & Smart Antennas", industry: ["Geospatial", "Civil Construction"], machineCompatibility: ["Volvo", "Komatsu"], price: 12400.00, description: "High-performance satellite tracking receiver featuring unique 6G GNSS-centric technology.", estimatedDelivery: "Less than 10 days" },
+            { id: "spectra-focus35", name: "Spectra Focus 35 Robotic Total Station", brand: "Spectra Geospatial", type: "Total Stations & Scanners", industry: ["Geospatial", "Building Construction"], machineCompatibility: [], price: 19800.00, description: "Motorized optical survey instrument offering high-speed scanning and automated layout tracking.", estimatedDelivery: "Less than 20 days" },
+            { id: "trimble-v9-kit", name: "Trimble Volvo-Grade 3D Excavator Guidance Kit", brand: "Trimble", type: "GNSS Receivers & Smart Antennas", industry: ["Civil Construction"], machineCompatibility: ["Volvo"], price: 24500.00, description: "Complete heavy machinery guidance bundle engineered exclusively for Volvo machine control systems.", estimatedDelivery: "Less than 10 days" },
+            { id: "trimble-k8-harness", name: "Trimble Komatsu Valve Control Mast Harness", brand: "Trimble", type: "Cables & Harnesses", industry: ["Civil Construction"], machineCompatibility: ["Komatsu"], price: 1850.00, description: "Heavy-duty poly-braided wiring harness designed for direct chassis routing on Komatsu profiles.", estimatedDelivery: "Less than 30 days" }
+        ];
+
+        let cart = [];
+        let currentSessionDiscount = 0;
+        let lastOrder = null;
+
+        let orderHistory = [
+            {
+                orderNum: "TRM-2026-102938",
+                items: [
+                    { id: 1, name: "Trimble R980 Integrated GNSS Receiver", quantity: 1, price: 14500, product: { price: 14500, estimatedDelivery: "Less than 10 days", type: "GNSS Receivers & Smart Antennas" } }
+                ],
+                subtotal: 14500,
+                discount: 0,
+                shippingHandling: 145.00,
+                tax: 1208.21,
+                total: 15853.21,
+                date: "May 15, 2026",
+                status: "Approved",
+                shipTo: "Denver Main Warehouse",
+                carrier: "UPS Supply Chain Solutions (Express Freight)"
+            },
+            {
+                orderNum: "TRM-2026-847261",
+                items: [
+                    { id: 17, name: "Trimble TD520 Display", quantity: 2, price: 8900, product: { price: 8900, estimatedDelivery: "Less than 30 days", type: "Controllers & Data Collectors" } },
+                    { id: 18, name: "Trimble TDL450B Radio Modem", quantity: 1, price: 3200, product: { price: 3200, estimatedDelivery: "Less than 20 days", type: "On-Machine Radios & Gateways" } }
+                ],
+                subtotal: 21000,
+                discount: 0,
+                shippingHandling: 0.00,
+                tax: 1732.50,
+                total: 22732.50,
+                date: "June 28, 2026",
+                status: "Approved",
+                shipTo: "Multiple Locations",
+                carrier: "FedEx Corporate Freight (Standard Ground Layout)",
+                shippingAssignments: [
+                    {
+                        locationName: "California warehouse",
+                        items: [
+                            { id: 17, name: "Trimble TD520 Display", quantity: 2, price: 8900, type: "Controllers & Data Collectors", product: { price: 8900, type: "Controllers & Data Collectors" } }
+                        ]
+                    },
+                    {
+                        locationName: "Colorado warehouse",
+                        items: [
+                            { id: 18, name: "Trimble TDL450B Radio Modem", quantity: 1, price: 3200, type: "On-Machine Radios & Gateways", product: { price: 3200, type: "On-Machine Radios & Gateways" } }
+                        ]
+                    }
+                ]
+            }
+        ];
+
+        function updateNavbarCartBadge() {
+            const cartIcon = document.querySelector('.cart-icon');
+            let badge = document.getElementById('cart-badge');
+            const activeItems = cart.filter(item => item.activeForCheckout !== false);
+            const totalCount = activeItems.length;
+            
+            if (totalCount > 0) {
+                if (!badge) {
+                    badge = document.createElement('div');
+                    badge.id = 'cart-badge';
+                    badge.style.cssText = 'position: absolute; top: -5px; right: -5px; background-color: #ef4444; color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; justify-content: center; align-items: center; font-size: 12px; font-weight: bold;';
+                    cartIcon.style.position = 'relative';
+                    cartIcon.appendChild(badge);
+                }
+                badge.textContent = totalCount;
+                badge.style.display = 'flex';
+            } else if (badge) {
+                badge.style.display = 'none';
+            }
+        }
+
+        function addToCart(product, quantity = 1) {
+            const existingItem = cart.find(item => item.id === product.id);
+            if (existingItem) {
+                existingItem.quantity += quantity;
+            } else {
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    description: product.description,
+                    price: product.price || 0,
+                    type: product.type,
+                    quantity: quantity,
+                    activeForCheckout: true
+                });
+            }
+            updateNavbarCartBadge();
+            renderMiniCart();
+            alert('Added to cart');
+        }
+
+        function updateOrderSummary() {
+            const subtotal = cart.reduce((sum, item) => {
+                return item.activeForCheckout ? sum + (item.price * item.quantity) : sum;
+            }, 0);
+            
+            const discountedSubtotal = Math.max(0, subtotal - currentSessionDiscount);
+            const tax = discountedSubtotal * 0.0825;
+            const total = discountedSubtotal + tax;
+            
+            document.getElementById('cart-subtotal').textContent = '$' + subtotal.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            document.getElementById('cart-tax').textContent = '$' + tax.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            document.getElementById('cart-total').textContent = '$' + total.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        }
+
+        document.getElementById('apply-promo-btn').addEventListener('click', () => {
+            const input = document.getElementById('promo-code-input').value.trim();
+            const messageEl = document.getElementById('promo-code-message');
+            
+            if (input !== '') {
+                const discounts = [500, 1200, 2500];
+                currentSessionDiscount = discounts[Math.floor(Math.random() * discounts.length)];
+                messageEl.textContent = `Discount: -$${currentSessionDiscount.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+                messageEl.style.display = 'block';
+            } else {
+                currentSessionDiscount = 0;
+                messageEl.style.display = 'none';
+            }
+            updateOrderSummary();
+        });
+
+        function renderCartView() {
+            const container = document.getElementById('cart-items-container');
+            const countText = document.getElementById('cart-item-count-text');
+            
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            countText.textContent = `${totalItems} items in your cart`;
+            container.innerHTML = '';
+            
+            if (cart.length === 0) {
+                container.innerHTML = '<p style="font-size: 1.2rem; color: #4b5563;">Your cart is empty.</p>';
+            } else {
+                cart.forEach((item, index) => {
+                    const product = products.find(p => p.id === item.id) || item;
+                    const row = document.createElement('div');
+                    row.className = 'cart-row';
+                    row.style.cssText = 'display: flex; align-items: center; gap: 1rem; padding: 1rem; border: 2px solid var(--border-color); background-color: #fff; flex-wrap: wrap;';
+                    row.innerHTML = `
+                        <input type="checkbox" class="cart-item-checkbox" data-index="${index}" ${item.activeForCheckout ? 'checked' : ''} style="width: 20px; height: 20px; cursor: pointer;">
+                        <div style="width: 80px; height: 60px; border: 1px solid #ccc; flex-shrink: 0; display: flex; justify-content: center; align-items: center;">
+                            ${getProductSvg(product)}
+                        </div>
+                        <div style="flex: 1; min-width: 200px;">
+                            <div style="font-weight: bold; font-size: 1.1rem;">${item.name}</div>
+                            <div style="margin-top: 4px;">
+                                <span style="display: inline-block; background-color: #e5e7eb; color: #374151; font-size: 11px; padding: 2px 6px; border-radius: 4px;">${item.type}</span>
+                            </div>
+                            <div style="color: #4b5563; font-size: 0.9em; margin-top: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 350px;">${item.description}</div>
+                        </div>
+                        <div style="font-weight: bold; width: 100px; text-align: right; font-size: 1.1rem;">
+                            $${(item.price * item.quantity).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.5rem; border: 2px solid var(--border-color); border-radius: 4px; padding: 2px; margin-left: auto;">
+                            <button class="cart-qty-btn cart-qty-minus" data-index="${index}" style="background: none; border: none; padding: 4px 8px; cursor: pointer; font-weight: bold; font-size: 1.2rem;">-</button>
+                            <span style="min-width: 30px; text-align: center; font-size: 1.1rem;">${item.quantity}</span>
+                            <button class="cart-qty-btn cart-qty-plus" data-index="${index}" style="background: none; border: none; padding: 4px 8px; cursor: pointer; font-weight: bold; font-size: 1.2rem;">+</button>
+                        </div>
+                        <button class="cart-delete-btn" data-index="${index}" style="background: none; border: none; cursor: pointer; color: #ef4444; font-size: 1.5rem; padding: 0.5rem; margin-left: 0.5rem;">🗑️</button>
+                    `;
+                    container.appendChild(row);
+                });
+                
+                document.querySelectorAll('.cart-item-checkbox').forEach(cb => {
+                    cb.addEventListener('change', (e) => {
+                        const index = parseInt(e.target.getAttribute('data-index'));
+                        cart[index].activeForCheckout = e.target.checked;
+                        updateOrderSummary();
+                    });
+                });
+                
+                document.querySelectorAll('.cart-qty-minus').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const index = parseInt(e.target.getAttribute('data-index'));
+                        if (cart[index].quantity > 1) {
+                            cart[index].quantity--;
+                            updateNavbarCartBadge();
+                            renderCartView();
+                            renderMiniCart();
+                        }
+                    });
+                });
+                
+                document.querySelectorAll('.cart-qty-plus').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const index = parseInt(e.target.getAttribute('data-index'));
+                        cart[index].quantity++;
+                        updateNavbarCartBadge();
+                        renderCartView();
+                        renderMiniCart();
+                    });
+                });
+                
+                document.querySelectorAll('.cart-delete-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const index = parseInt(e.target.getAttribute('data-index'));
+                        cart.splice(index, 1);
+                        updateNavbarCartBadge();
+                        renderCartView();
+                        renderMiniCart();
+                    });
+                });
+            }
+            updateOrderSummary();
+        }
+
+        function showCartView() {
+            cartNavigationSource = currentActiveView;
+            const backLink = document.getElementById('cart-back-to-shop');
+            if (backLink) {
+                backLink.style.fontSize = '14px';
+                backLink.style.color = '#6b7280';
+                backLink.style.textDecoration = 'underline';
+                
+                if (cartNavigationSource === 'home-view') {
+                    backLink.innerHTML = '&larr; Back to Home';
+                } else if (cartNavigationSource === 'product-detail-view') {
+                    backLink.innerHTML = '&larr; Back to Product';
+                } else if (cartNavigationSource === 'orders-history-view') {
+                    backLink.innerHTML = '&larr; Back to Orders';
+                } else if (cartNavigationSource === 'order-details-view') {
+                    backLink.innerHTML = '&larr; Back to Order Details';
+                } else if (cartNavigationSource === 'invoice-view') {
+                    backLink.innerHTML = '&larr; Back to Invoice';
+                } else {
+                    backLink.innerHTML = '&larr; Back to Hardware Catalog';
+                }
+            }
+            MapsToView('shopping-cart-view');
+            renderCartView();
+            window.scrollTo(0, 0);
+        }
+
+        function hideCartView() {
+            if (cartNavigationSource === 'home-view') {
+                MapsToView('home-view');
+            } else if (cartNavigationSource === 'product-detail-view') {
+                MapsToView('product-detail-view');
+            } else if (cartNavigationSource === 'orders-history-view') {
+                MapsToView('orders-history-view');
+            } else if (cartNavigationSource === 'order-details-view') {
+                MapsToView('order-details-view');
+            } else if (cartNavigationSource === 'invoice-view') {
+                MapsToView('invoice-view');
+            } else {
+                MapsToView('catalog-view');
+            }
+            renderMiniCart();
+        }
+
+        function renderMiniCart() {
+            const container = document.getElementById('mini-cart-items');
+            const subtotalEl = document.getElementById('mini-cart-subtotal');
+            const sidebar = document.getElementById('mini-cart-sidebar');
+            const cartView = document.getElementById('shopping-cart-view');
+            
+            if (!container || !subtotalEl || !sidebar) return;
+            
+            if (cart.length === 0 || (cartView && cartView.style.display === 'block') || !['catalog-view', 'product-detail-view'].includes(currentActiveView)) {
+                sidebar.style.display = 'none';
+                document.getElementById('nav-right-controls').style.marginRight = '0px';
+                document.getElementById('catalog-view').style.paddingRight = '0px';
+                document.getElementById('product-detail-view').style.paddingRight = '0px';
+                return;
+            } else {
+                sidebar.style.display = 'flex';
+                document.getElementById('nav-right-controls').style.marginRight = '230px';
+                document.getElementById('catalog-view').style.paddingRight = '230px';
+                document.getElementById('product-detail-view').style.paddingRight = '230px';
+            }
+            
+            container.innerHTML = '';
+            let subtotal = 0;
+            
+            cart.forEach((item, index) => {
+                const product = products.find(p => p.id === item.id) || item;
+                subtotal += item.price * item.quantity;
+                
+                const row = document.createElement('div');
+                row.style.cssText = 'display: flex; flex-direction: column; gap: 0.5rem; padding-bottom: 1rem; border-bottom: 1px solid #e5e7eb;';
+                row.innerHTML = `
+                    <div style="width: 100%; height: 80px; border: 1px solid #ccc; display: flex; justify-content: center; align-items: center; background-color: #f9f9f9;">
+                        ${getProductSvg(product)}
+                    </div>
+                    <div style="font-weight: bold; font-size: 0.95rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.2;">${item.name}</div>
+                    <div style="color: #4b5563; font-size: 0.9rem; font-weight: bold;">$${item.price.toLocaleString(undefined, {minimumFractionDigits: 2})}</div>
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 0.25rem;">
+                        <div style="display: flex; align-items: center; gap: 0.5rem; border: 1px solid #d1d5db; border-radius: 4px; padding: 2px;">
+                            <button class="mini-cart-qty-minus" data-index="${index}" style="background: none; border: none; padding: 0 6px; cursor: pointer; font-weight: bold;">-</button>
+                            <span style="min-width: 20px; text-align: center; font-size: 0.9rem;">${item.quantity}</span>
+                            <button class="mini-cart-qty-plus" data-index="${index}" style="background: none; border: none; padding: 0 6px; cursor: pointer; font-weight: bold;">+</button>
+                        </div>
+                        <button class="mini-cart-delete-btn" data-index="${index}" style="background: none; border: none; cursor: pointer; color: #ef4444; font-size: 0.85rem; text-decoration: underline;">Delete</button>
+                    </div>
+                `;
+                container.appendChild(row);
+            });
+            
+            subtotalEl.textContent = '$' + subtotal.toLocaleString(undefined, {minimumFractionDigits: 2});
+            
+            document.querySelectorAll('.mini-cart-qty-minus').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const index = parseInt(e.target.getAttribute('data-index'));
+                    if (cart[index].quantity > 1) {
+                        cart[index].quantity--;
+                        updateNavbarCartBadge();
+                        renderCartView();
+                        renderMiniCart();
+                    }
+                });
+            });
+            
+            document.querySelectorAll('.mini-cart-qty-plus').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const index = parseInt(e.target.getAttribute('data-index'));
+                    cart[index].quantity++;
+                    updateNavbarCartBadge();
+                    renderCartView();
+                    renderMiniCart();
+                });
+            });
+            
+            document.querySelectorAll('.mini-cart-delete-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const index = parseInt(e.target.getAttribute('data-index'));
+                    cart.splice(index, 1);
+                    updateNavbarCartBadge();
+                    renderCartView();
+                    renderMiniCart();
+                });
+            });
+        }
+
+        function getSelectedFilters() {
+            const filters = { industry: [], type: [], brand: [], machineCompatibility: [], system: [] };
+            
+            const industryRadio = document.querySelector('input[name="industry"]:checked');
+            if (industryRadio) {
+                const industryVal = industryRadio.closest('label').textContent.replace(/[\n\r]+/g, ' ').replace(/\s+/g, ' ').trim();
+                if (industryVal !== 'All') {
+                    filters.industry.push(industryVal);
+                }
+            }
+
+            document.querySelectorAll('.filter-section').forEach(section => {
+                const summary = section.querySelector('summary').textContent.replace(/[\n\r]+/g, ' ').replace(/\s+/g, ' ').trim();
+                section.querySelectorAll('input[type="checkbox"]:checked').forEach(box => {
+                    const labelText = box.closest('label').textContent.replace(/[\n\r]+/g, ' ').replace(/\s+/g, ' ').trim();
+                    if (summary === 'Product Type') filters.type.push(labelText);
+                    if (summary === 'Brand') filters.brand.push(labelText);
+                    if (summary === 'Machine Compatibility') filters.machineCompatibility.push(labelText);
+                    if (summary === 'Systems') filters.system.push(labelText);
+                });
+            });
+
+            return filters;
+        }
+
+        function filterProducts() {
+            const filters = getSelectedFilters();
+            const term = searchInput ? searchInput.value.toLowerCase().trim() : '';
+            return products.filter(product => {
+                if (filters.industry.length > 0) {
+                    const productIndustries = Array.isArray(product.industry) ? product.industry : [product.industry];
+                    if (!filters.industry.some(ind => productIndustries.includes(ind))) return false;
+                }
+                if (filters.type.length > 0 && !filters.type.includes(product.type)) return false;
+                if (filters.brand.length > 0 && !filters.brand.includes(product.brand)) return false;
+                if (filters.system.length > 0 && !filters.system.includes(product.system)) return false;
+                
+                if (filters.machineCompatibility.length > 0) {
+                    const comp = Array.isArray(product.machineCompatibility) ? product.machineCompatibility : [product.machineCompatibility];
+                    // Fixed: Changed 'filterLabel' to 'label' to match the loop parameter correctly
+                    if (!filters.machineCompatibility.some(label => comp.includes(label))) return false;
+                }
+
+                if (term) {
+                    const matchText = [product.name, product.brand, product.type].join(' ').toLowerCase();
+                    if (!matchText.includes(term)) return false;
+                }
+                
+                return true;
+            });
+        }
+
+        function getProductSvg(product) {
+            let path = '';
+            switch(product.type) {
+                case 'GNSS Receivers & Smart Antennas': path = 'assets/gnss-antenna.jpeg'; break;
+                case 'Total Stations & Scanners': path = 'assets/total-station.jpg'; break;
+                case 'Controllers & Data Collectors': path = 'assets/controller.jpg'; break;
+                case 'On-Machine Radios & Gateways': path = 'assets/radio.jpg'; break;
+                case 'Cables & Harnesses': path = 'assets/cable.png'; break;
+                default: path = 'assets/accessory.jpg'; break;
+            }
+            return `<img src="${path}" alt="${product.name || 'Hardware Asset'}" style="width: 100%; height: 100%; object-fit: contain; background-color: #f3f4f6; border-radius: 4px; display: block;" />`;
+        }
+
+        function renderProducts(filteredProducts) {
+            const grid = document.querySelector('.products-grid');
+            grid.innerHTML = '';
+            if (filteredProducts.length === 0) {
+                grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 2rem;">No products match choices.</p>';
+                return;
+            }
+            filteredProducts.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.style.cursor = 'pointer';
+                card.innerHTML = `
+                    <div class="product-image" style="background-image: none; padding: 0;">${getProductSvg(product)}</div>
+                    <div class="product-info">
+                        <div class="product-name" style="font-weight: bold; font-size: 1.1rem; color: #111827;">${product.name}</div>
+                        <div class="product-desc" style="color: #4b5563; font-size: 0.95rem; margin-top: 4px;">${product.description}</div>
+                        <div style="color: #111827; font-weight: bold; font-size: 18px; margin-top: auto; margin-bottom: 8px;">$${product.price.toLocaleString()}</div>
+                        <button class="product-btn add-to-cart-btn">Add to cart</button>
+                    </div>
+                `;
+                card.addEventListener('click', (e) => {
+                    if (e.target.closest('.add-to-cart-btn')) { addToCart(product); return; }
+                    renderPDP(product.id);
+                });
+                grid.appendChild(card);
+            });
+        }
+
+        function showBomModal(kitId) {
+            let bomItems = products.filter(p => p.partOfKit === kitId || p.id === 10 || p.id === 17 || p.id === 20);
+            let modal = document.getElementById('bom-modal');
+            if (!modal) {
+                modal = document.createElement('div');
+                modal.id = 'bom-modal';
+                modal.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center; z-index: 1000;';
+                modal.innerHTML = `
+                    <div style="background: white; padding: 24px; border-radius: 8px; width: 90%; max-width: 500px; max-height: 80vh; overflow-y: auto; position: relative; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                        <button style="position: absolute; top: 16px; right: 16px; background: none; border: none; font-size: 1.2em; cursor: pointer;" onclick="document.getElementById('bom-modal').style.display='none'">✕</button>
+                        <h2 style="margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px;">Kit Bill of Materials</h2>
+                        <ul id="bom-modal-list" style="list-style: none; padding: 0; margin: 0;"></ul>
+                    </div>
+                `;
+                document.body.appendChild(modal);
+            }
+            const list = document.getElementById('bom-modal-list');
+            list.innerHTML = bomItems.map(item => `
+                <li style="padding: 12px 0; border-bottom: 1px solid #eee;">
+                    <strong>${item.name}</strong>
+                    <div style="color: #6b7280; font-size: 0.9em;">${item.kitDetails || ''}</div>
+                    <div style="color: #4b5563; font-size: 0.9em; margin-top: 2px;">${item.description}</div>
+                    <div style="margin-top: 4px;"><span style="background-color: #e5e7eb; padding: 2px 6px; border-radius: 4px; font-size: 12px;">${item.type}</span></div>
+                    <div style="color: #374151; font-size: 14px; margin-top: 4px;">$${item.price.toLocaleString()}</div>
+                </li>
+            `).join('');
+            modal.style.display = 'flex';
+        }
+
+        // Search Engine Keystroke Configuration Logic
+        const searchInput = document.getElementById('search-input');
+        const searchSuggestions = document.getElementById('search-suggestions');
+        const searchClearBtn = document.getElementById('search-clear-btn');
+
+        if (searchInput && searchSuggestions) {
+            searchClearBtn.addEventListener('click', () => {
+                searchInput.value = "";
+                searchClearBtn.style.display = 'none';
+                renderProducts(filterProducts());
+                searchInput.focus();
+            });
+
+            searchInput.addEventListener('input', (e) => {
+                searchClearBtn.style.display = searchInput.value.trim() !== "" ? 'block' : 'none';
+                renderProducts(filterProducts());
+                const rawTerm = e.target.value.trim();
+                if (rawTerm.length >= 2) {
+                    const tokens = rawTerm.toLowerCase().split(/\s+/);
+                    const matches = products.filter(p => tokens.every(t => p.name.toLowerCase().includes(t))).slice(0, 6);
+                    if (matches.length > 0) {
+                        searchSuggestions.innerHTML = matches.map((m, i) => `
+                            <div class="suggestion-item" onclick="selectSuggestion('${m.name}')" style="padding: 8px 12px; cursor: pointer; border-bottom: 1px solid #f3f4f6; display: flex; gap: 12px;">
+                                <div style="color: #9ca3af; font-size: 11px; width: 80px; text-transform: uppercase;">${m.type.split(' ')[0]}</div>
+                                <div style="font-weight: 600; color: #111827;">${m.name}</div>
+                            </div>
+                        `).join('');
+                        searchSuggestions.style.display = 'block';
+                    } else { searchSuggestions.style.display = 'none'; }
+                } else { searchSuggestions.style.display = 'none'; }
+            });
+
+            searchInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    MapsToView('catalog-view');
+                    searchSuggestions.style.display = 'none';
+                    renderProducts(filterProducts());
+                }
+            });
+        }
+
+        function selectSuggestion(name) {
+            searchInput.value = name;
+            searchSuggestions.style.display = 'none';
+            searchClearBtn.style.display = 'block';
+            MapsToView('catalog-view');
+            renderProducts(filterProducts());
+        }
+
+        function renderPDP(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            let relHtml = '';
+            if (product.partOfKit) {
+                const parent = products.find(p => p.id === product.partOfKit);
+                if (parent) relHtml = `<div style="margin-bottom: 8px;"><a href="#" class="pdp-part-of-kit-link" onclick="pdpNavigationSource = 'catalog-view'; previousProductId = null; renderPDP(${parent.id}); return false;" style="color: #2563eb; font-weight: bold; text-decoration: underline;">Part of: ${parent.name}</a></div>`;
+            }
+            let html = `
+                <div class="pdp-header" style="margin-bottom: 2rem;">
+                    <a href="#" id="pdp-dynamic-back-btn" style="text-decoration: underline; color: #4b5563; font-weight: bold;">&larr; Back to Catalog</a>
+                </div>
+                <div class="pdp-upper" style="display: flex; gap: 3rem; margin-bottom: 3rem; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <div style="height: 350px; background-color: #F3F4F6; border: 2px solid var(--border-color); display: flex; justify-content: center; align-items: center; margin-bottom: 1rem;">
+                            ${getProductSvg(product)}
+                        </div>
+                    </div>
+                    <div style="flex: 1; display: flex; flex-direction: column; gap: 1.5rem; min-width: 300px;">
+                        <h1 style="font-size: 2.5rem; margin: 0;">${product.name}</h1>
+                        <p style="font-size: 1.1rem; color: #4b5563; line-height: 1.5;">${product.description} Built ruggedly for heavy-duty operational testing arrays.</p>
+                        ${relHtml}
+                        <div style="font-size: 36px;">$${product.price.toLocaleString()}</div>
+                        <button class="product-btn" id="pdp-add-to-cart" style="background-color:#111827; color:#fff; padding:14px;">Add to Cart</button>
+                    </div>
+                </div>
+            `;
+            if (product.isKit) {
+                let bomItems = products.filter(p => p.partOfKit === product.id || (product.id === 31 && (p.id === 10 || p.id === 17 || p.id === 20)));
+                bomItems = [...new Set(bomItems)];
+                html += `
+                    <div class="pdp-lower" style="margin-bottom: 100px;">
+                        <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem;">Kit Components / Bill of Materials (BOM)</h2>
+                        <div style="font-size: 14px; color: #4b5563; margin-bottom: 12px;">
+                            <input type="checkbox" id="bom-master-checkbox" checked style="width:16px; height:16px; margin-right:8px;">
+                            <label for="bom-master-checkbox" id="bom-master-counter">${bomItems.length} out of ${bomItems.length} items selected</label>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 1rem;">
+                `;
+                bomItems.forEach(item => {
+                    html += `
+                        <div class="bom-row" data-id="${item.id}" data-price="${item.price}" style="display: flex; align-items: center; gap: 1.5rem; padding: 1rem; border: 2px solid var(--border-color); background-color: #fff;">
+                            <input type="checkbox" class="bom-checkbox" checked style="width: 20px; height: 20px;">
+                            <div style="width: 80px; height: 60px; border: 1px solid #ccc; display: flex; justify-content: center; align-items: center; background:#fff;">${getProductSvg(item)}</div>
+                            <div style="flex: 1;">
+                                <a href="#" class="bom-item-link" data-id="${item.id}" style="color: #2563eb; text-decoration: underline; font-weight: bold; font-size: 1.1rem; display: block; margin-bottom: 0.25rem;">${item.name}</a>
+                                <div style="color: #6b7280; font-size: 0.9rem;">${item.kitDetails || ''}</div>
+                            </div>
+                            <div style="font-weight: bold; width: 100px; text-align: right;">$${item.price.toLocaleString()}</div>
+                            <input type="number" class="bom-qty" value="1" min="1" style="width: 60px; padding: 0.5rem; border: 2px solid var(--border-color);">
+                        </div>
+                    `;
+                });
+                html += `
+                        </div>
+                    </div>
+                    <div id="sticky-footer" style="position: fixed; bottom: 0; left: 0; right: 0; background-color: #fff; border-top: 2px solid var(--border-color); padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; z-index: 100; box-shadow: 0 -4px 10px rgba(0,0,0,0.1);">
+                        <div style="display: flex; gap: 2rem; align-items: center;">
+                            <div>Selected Parts: <strong id="sticky-count">0</strong></div>
+                            <div style="font-size: 1.5rem;">Total Price: <strong id="sticky-price">$0</strong></div>
+                        </div>
+                        <button class="product-btn" id="sticky-add-to-cart" style="background-color: #111827; color: #fff; padding: 0.75rem 2rem;">Add Selection to Cart</button>
+                    </div>
+                `;
+            }
+            const pdpView = document.getElementById('product-detail-view');
+            pdpView.innerHTML = html;
+            MapsToView('product-detail-view');
+            window.scrollTo(0, 0);
+
+            document.getElementById('pdp-add-to-cart').addEventListener('click', () => addToCart(product));
+
+            const backBtn = document.getElementById('pdp-dynamic-back-btn');
+            if (pdpNavigationSource === 'product-detail-view' && previousProductId) {
+                backBtn.innerText = '← Back to Parent Kit';
+                backBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    pdpNavigationSource = 'catalog-view';
+                    renderPDP(previousProductId);
+                });
+            } else {
+                backBtn.innerText = '← Back to Catalog';
+                backBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    MapsToView('catalog-view');
+                });
+            }
+
+            document.querySelectorAll('.bom-item-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const clickedItemId = parseInt(e.currentTarget.getAttribute('data-id'));
+                    previousProductId = product.id;
+                    pdpNavigationSource = 'product-detail-view';
+                    renderPDP(clickedItemId);
+                    window.scrollTo(0, 0);
+                });
+            });
+
+            if (product.isKit) {
+                const checkboxes = document.querySelectorAll('.bom-checkbox');
+                const updateStickyFooter = () => {
+                    let count = 0, price = 0;
+                    document.querySelectorAll('.bom-row').forEach(row => {
+                        if (row.querySelector('.bom-checkbox').checked) {
+                            const qty = parseInt(row.querySelector('.bom-qty').value) || 0;
+                            count += qty;
+                            price += qty * parseFloat(row.getAttribute('data-price'));
+                        }
+                    });
+                    document.getElementById('sticky-count').innerText = count;
+                    document.getElementById('sticky-price').innerText = '$' + price.toLocaleString();
+                };
+                checkboxes.forEach(cb => cb.addEventListener('change', updateStickyFooter));
+                document.querySelectorAll('.bom-qty').forEach(input => input.addEventListener('input', updateStickyFooter));
+                
+                document.getElementById('bom-master-checkbox').addEventListener('change', (e) => {
+                    checkboxes.forEach(cb => cb.checked = e.target.checked);
+                    document.getElementById('bom-master-counter').innerText = e.target.checked ? `${checkboxes.length} out of ${checkboxes.length} items selected` : `0 out of ${checkboxes.length} items selected`;
+                    updateStickyFooter();
+                });
+                
+                document.getElementById('sticky-add-to-cart').addEventListener('click', () => {
+                    document.querySelectorAll('.bom-row').forEach(row => {
+                        if (row.querySelector('.bom-checkbox').checked) {
+                            const itemProd = products.find(p => p.id === parseInt(row.getAttribute('data-id')));
+                            const qty = parseInt(row.querySelector('.bom-qty').value) || 0;
+                            if (itemProd && qty > 0) addToCart(itemProd, qty);
+                        }
+                    });
+                    alert('Custom pieces staged in your order queue successfully!');
+                });
+                updateStickyFooter();
+            }
+        }
+
+        // Global Utility Actions Triggers
+        document.querySelector('.cart-icon').addEventListener('click', showCartView);
+        document.getElementById('mini-cart-go-to-cart').addEventListener('click', showCartView);
+        document.getElementById('cart-back-to-shop').addEventListener('click', (e) => { e.preventDefault(); hideCartView(); });
+        document.getElementById('proceed-to-checkout-btn').addEventListener('click', showCheckoutView);
+
+        // Checkout & Split Delivery Systems Controller Logic
+        let unassignedItems = [];
+        let shippingAssignments = [];
+        let isSplitShipping = false;
+
+        function showCheckoutView() {
+            isSplitShipping = false;
+            shippingAssignments = [];
+            document.getElementById('standard-checkout-column').style.display = 'flex';
+            document.getElementById('multiple-locations-column').style.display = 'none';
+            document.getElementById('split-shipping-status').style.display = 'none';
+            document.getElementById('tab-standard-checkout').style.cssText = 'font-weight: bold; color: #111827; border-bottom: 2px solid #111827; padding-bottom: 0.5rem;';
+            document.getElementById('tab-multiple-locations').style.cssText = 'color: #6b7280; padding-bottom: 0.5rem;';
+            
+            unassignedItems = cart.filter(item => item.activeForCheckout).map(item => ({ ...item, selectedForAssignment: false }));
+            MapsToView('checkout-view');
+            renderCheckoutView();
+        }
+
+        function renderCheckoutView() {
+            const container = document.getElementById('checkout-items-container');
+            container.innerHTML = '';
+            let subtotal = 0;
+            const checkoutItems = cart.filter(item => item.activeForCheckout);
+            
+            checkoutItems.forEach(item => {
+                const product = products.find(p => p.id === item.id) || item;
+                subtotal += item.price * item.quantity;
+                const div = document.createElement('div');
+                div.style.cssText = 'display: flex; align-items: center; gap: 1rem; padding: 1rem; border: 1px solid #d1d5db; background-color: #f9f9f9; width:100%; box-sizing:border-box;';
+                div.innerHTML = `
+                    <div style="width:60px; height:45px; border:1px solid #ccc; display:flex; justify-content:center; background:#fff;">${getProductSvg(product)}</div>
+                    <div style="flex:1;">
+                        <div style="font-weight:bold;">${item.name}</div>
+                        <div style="color:#6b7280; font-size:0.9em;">Qty: ${item.quantity}</div>
+                    </div>
+                    <div style="font-weight:bold;">$${(item.price * item.quantity).toLocaleString(undefined, {minimumFractionDigits:2})}</div>
+                `;
+                container.appendChild(div);
+            });
+            
+            const discounted = Math.max(0, subtotal - currentSessionDiscount);
+            const tax = discounted * 0.0825;
+            document.getElementById('checkout-summary-subtotal').textContent = '$' + subtotal.toLocaleString(undefined, {minimumFractionDigits: 2});
+            document.getElementById('checkout-summary-tax').textContent = '$' + tax.toLocaleString(undefined, {minimumFractionDigits: 2});
+            document.getElementById('checkout-summary-total').textContent = '$' + (discounted + tax).toLocaleString(undefined, {minimumFractionDigits: 2});
+            updatePlaceOrderButtonState();
+        }
+
+        // Standardized Checkout Tabs Click Handlers
+        document.getElementById('tab-standard-checkout').addEventListener('click', () => {
+            isSplitShipping = false;
+            document.getElementById('tab-standard-checkout').style.cssText = 'font-weight: bold; color: #111827; border-bottom: 2px solid #111827; padding-bottom: 0.5rem;';
+            document.getElementById('tab-multiple-locations').style.cssText = 'color: #6b7280; padding-bottom: 0.5rem;';
+            document.getElementById('standard-checkout-column').style.display = 'flex';
+            document.getElementById('multiple-locations-column').style.display = 'none';
+            document.getElementById('split-shipping-status').style.display = 'none';
+            updatePlaceOrderButtonState();
+        });
+
+        document.getElementById('tab-multiple-locations').addEventListener('click', () => {
+            isSplitShipping = true;
+            document.getElementById('tab-multiple-locations').style.cssText = 'font-weight: bold; color: #111827; border-bottom: 2px solid #111827; padding-bottom: 0.5rem;';
+            document.getElementById('tab-standard-checkout').style.cssText = 'color: #6b7280; padding-bottom: 0.5rem;';
+            document.getElementById('standard-checkout-column').style.display = 'none';
+            document.getElementById('multiple-locations-column').style.display = 'flex';
+            document.getElementById('split-shipping-status').style.display = 'block';
+            renderSplitShipping();
+            updatePlaceOrderButtonState();
+        });
+
+        function renderSplitShipping() {
+            const container = document.getElementById('unassigned-items-container');
+            container.innerHTML = '';
+            const assignBtn = document.getElementById('assign-items-btn');
+
+            if (unassignedItems.length === 0) {
+                container.innerHTML = '<div style="color: #6b7280; font-style: italic; padding: 1rem 0;">All items have been assigned.</div>';
+                if (assignBtn) assignBtn.style.display = 'none';
+            } else {
+                if (assignBtn) assignBtn.style.display = 'block';
+                unassignedItems.forEach((item, idx) => {
+                    const product = products.find(p => p.id === item.id) || item;
+                    const isSelected = item.selectedForAssignment;
+                    const div = document.createElement('div');
+                    div.style.cssText = `position:relative; display:flex; align-items:center; gap:1rem; padding:1rem; border:${isSelected ? '2px solid #2563eb' : '1px solid #e5e7eb'}; background:${isSelected ? '#eff6ff' : '#fff'}; cursor:pointer;`;
+                    div.innerHTML = `
+                        ${isSelected ? '<div style="position:absolute; top:-10px; right:-10px; background:#2563eb; color:#fff; width:24px; height:24px; border-radius:50%; display:flex; justify-content:center; align-items:center; font-weight:bold; z-index:1;">✓</div>' : ''}
+                        <div style="width:60px; height:45px; border:1px solid #ccc; display:flex; justify-content:center; background:#fff;">${getProductSvg(product)}</div>
+                        <div style="flex:1;">
+                            <div style="font-weight:bold; color:#111827;">${item.name}</div>
+                            <div style="color:#6b7280; font-size:0.875rem;">Qty: ${item.quantity}</div>
+                        </div>
+                        <div style="font-weight:bold; color:#111827;">$${(item.price * item.quantity).toLocaleString(undefined, {minimumFractionDigits:2})}</div>
+                    `;
+                    div.onclick = () => { unassignedItems[idx].selectedForAssignment = !unassignedItems[idx].selectedForAssignment; renderSplitShipping(); };
+                    container.appendChild(div);
+                });
+            }
+
+            // Render Output Assignments Manifest List Blocks
+            const manifestContainer = document.getElementById('shipping-assignments-container');
+            manifestContainer.innerHTML = '';
+            shippingAssignments.forEach((assignment, aIdx) => {
+                const card = document.createElement('div');
+                card.style.cssText = 'border: 2px solid var(--border-color); padding: 1.5rem; background: #fff; position: relative; margin-bottom:1rem;';
+                let itemsListHtml = assignment.items.map(i => `<li>${i.name} (Qty: ${i.quantity})</li>`).join('');
+                card.innerHTML = `
+                    <button class="delete-assignment-btn" onclick="removeAssignment(${aIdx})" style="position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; cursor: pointer; color: #ef4444;">🗑️</button>
+                    <h2 style="margin: 0 0 1rem 0; font-size: 1.5rem;">Shipping Assignment: ${assignment.locationName}</h2>
+                    <ul style="padding-left:1.2rem; color:#4b5563; line-height:1.6;">${itemsListHtml}</ul>
+                `;
+                manifestContainer.appendChild(card);
+            });
+
+            const totalCount = cart.filter(i => i.activeForCheckout).reduce((sum, i) => sum + i.quantity, 0);
+            const assignedCount = shippingAssignments.reduce((sum, a) => sum + a.items.reduce((s, i) => s + i.quantity, 0), 0);
+            document.getElementById('items-assigned-count').textContent = assignedCount;
+            document.getElementById('items-total-count').textContent = totalCount;
+        }
+
+        document.getElementById('assign-items-btn').addEventListener('click', () => {
+            const checkedRadio = document.querySelector('input[name="warehouse-selection"]:checked');
+            const targetItems = unassignedItems.filter(i => i.selectedForAssignment);
+            
+            if (!checkedRadio) { alert('Please choose a regional delivery destination warehouse target.'); return; }
+            if (targetItems.length === 0) { alert('Please check at least one pending line item box below to assign.'); return; }
+
+            const locName = checkedRadio.value;
+            let existing = shippingAssignments.find(a => a.locationName === locName);
+
+            if (existing) {
+                targetItems.forEach(newItem => {
+                    let match = existing.items.find(i => i.id === newItem.id);
+                    if (match) match.quantity += newItem.quantity;
+                    else existing.items.push({ ...newItem });
+                });
+            } else {
+                shippingAssignments.push({ locationName: locName, items: targetItems.map(i => ({ ...i })) });
+            }
+
+            unassignedItems = unassignedItems.filter(i => !i.selectedForAssignment);
+            renderSplitShipping();
+            updatePlaceOrderButtonState();
+        });
+
+        function removeAssignment(idx) {
+            shippingAssignments[idx].items.forEach(item => {
+                item.selectedForAssignment = false;
+                unassignedItems.push(item);
+            });
+            shippingAssignments.splice(idx, 1);
+            renderSplitShipping();
+            updatePlaceOrderButtonState();
+        }
+
+        function updatePlaceOrderButtonState() {
+            const btn = document.getElementById('place-order-btn');
+            if (!btn) return;
+            if (isSplitShipping) {
+                if (unassignedItems.length > 0 || shippingAssignments.length === 0) {
+                    btn.style.opacity = '0.5'; btn.style.cursor = 'not-allowed'; btn.disabled = true;
+                } else {
+                    btn.style.opacity = '1'; btn.style.cursor = 'pointer'; btn.disabled = false;
+                }
+            } else {
+                btn.style.opacity = '1'; btn.style.cursor = 'pointer'; btn.disabled = false;
+            }
+        }
+
+        // Place Order Core Logic Event Engine Triggers
+        document.getElementById('place-order-btn').addEventListener('click', () => {
+            const checkoutItems = cart.filter(item => item.activeForCheckout);
+            const num = Math.floor(100000 + Math.random() * 900000);
+            let subtotal = checkoutItems.reduce((s, i) => s + (i.price * i.quantity), 0);
+            
+            let carrier = isSplitShipping ? document.getElementById('active-carrier-name-multiple').textContent.trim() : document.getElementById('active-carrier-name').textContent.trim();
+            let shipTo = isSplitShipping ? "Multiple Locations" : document.getElementById('active-shipping-address').textContent.trim();
+
+            lastOrder = {
+                orderNum: `TRM-2026-${num}`,
+                items: checkoutItems.map(i => ({ ...i, product: products.find(p => p.id === i.id) || i })),
+                subtotal: subtotal,
+                discount: currentSessionDiscount,
+                shippingHandling: 0.00,
+                tax: (Math.max(0, subtotal - currentSessionDiscount)) * 0.0825,
+                total: (Math.max(0, subtotal - currentSessionDiscount)) * 1.0825,
+                date: new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
+                status: "Processing",
+                shipTo: shipTo,
+                carrier: carrier,
+                shippingAssignments: isSplitShipping ? JSON.parse(JSON.stringify(shippingAssignments)) : null
+            };
+
+            orderHistory.unshift(lastOrder);
+            renderOrderHistory();
+            cart = [];
+            
+            document.getElementById('dynamic-order-number').textContent = `Order #TRM-2026-${num}`;
+            document.getElementById('dynamic-delivery-time').textContent = isSplitShipping ? "Multiple delivery windows apply" : "Less than 10 days";
+            document.getElementById('dynamic-ship-to').textContent = shipTo;
+            
+            MapsToView('confirmation-view');
+            window.scrollTo(0, 0);
+        });
+
+        document.getElementById('view-manage-order-btn').addEventListener('click', () => {
+            if (lastOrder) { orderNavigationSource = 'checkout'; showOrderDetails(lastOrder.orderNum); }
+        });
+        document.getElementById('confirmation-back-to-catalog').addEventListener('click', (e) => { e.preventDefault(); MapsToView('catalog-view'); });
+        document.getElementById('checkout-back-to-cart').addEventListener('click', (e) => { e.preventDefault(); MapsToView('shopping-cart-view'); });
+
+        // Order Records & Invoice View Dynamic Generator Engine
+        function showOrderDetails(orderNum) {
+            const order = orderHistory.find(o => o.orderNum === orderNum);
+            if (!order) return;
+
+            MapsToView('order-details-view');
+            document.getElementById('order-details-metadata').textContent = `Order placed: ${order.date} | Order #${order.orderNum}`;
+            document.getElementById('order-details-carrier').textContent = order.carrier;
+            document.getElementById('order-details-ship-to-summary').textContent = order.shipTo;
+
+            const backLink = document.getElementById('order-details-back-to-catalog');
+            if (orderNavigationSource === 'orders-history') {
+                backLink.innerHTML = '&larr; Back to Orders';
+                backLink.onclick = (e) => { e.preventDefault(); MapsToView('orders-history-view'); };
+            } else {
+                backLink.innerHTML = '&larr; Back to Hardware Catalog';
+                backLink.onclick = (e) => { e.preventDefault(); MapsToView('catalog-view'); };
+            }
+
+            const banner = document.getElementById('order-details-pending-banner');
+            banner.style.display = order.status === 'Processing' ? 'block' : 'none';
+            banner.innerHTML = order.status === 'Processing' ? `
+                <div style="background-color: #fef3c7; border: 1px solid #fde68a; padding: 1rem; border-radius: 4px; margin-bottom: 1.5rem; display: flex; gap: 0.75rem; color:#92400e; font-weight:500;">
+                    <span>ℹ️</span><div>Tracking information, shipping costs, and your final invoice will populate as soon as corporate approval is complete.</div>
+                </div>
+            ` : '';
+
+            const format = (p) => '$' + p.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            document.getElementById('order-details-subtotal').textContent = format(order.subtotal);
+            document.getElementById('order-details-shipping').textContent = format(order.shippingHandling);
+            document.getElementById('order-details-tax').textContent = format(order.tax);
+            document.getElementById('order-details-total').textContent = format(order.total);
+
+            const container = document.getElementById('order-details-shipments-container');
+            container.innerHTML = '';
+
+            if (order.shippingAssignments && order.shippingAssignments.length > 0) {
+                order.shippingAssignments.forEach((assignment, index) => {
+                    const div = document.createElement('div');
+                    div.style.cssText = 'border:2px solid var(--border-color); background:#fff; padding:1.5rem; margin-bottom:1.5rem;';
+                    
+                    let rowsHtml = assignment.items.map(item => {
+                        const delivery = (item.product && item.product.estimatedDelivery) ? item.product.estimatedDelivery : (item.estimatedDelivery || "Less than 10 days");
+                        return `
+                        <div style="display:flex; gap:1.5rem; margin-bottom:1rem;">
+                            <div style="width:60px; height:60px; border:1px solid #ccc; background:#f3f4f6;">${getProductSvg(item.product || item)}</div>
+                            <div>
+                                <div style="font-weight:bold;">${item.name}</div>
+                                <div style="color:#6b7280; font-size:0.9em;">Qty: ${item.quantity} | ${format(item.price)}</div>
+                                <div style="color: #111827; font-size: 0.95rem; font-weight: bold; margin-top: 4px;">Estimated delivery: ${delivery}</div>
+                            </div>
+                        </div>
+                    `}).join('');
+
+                    div.innerHTML = `
+                        <h2 style="margin-top:0; font-size:1.4rem;">Shipment ${index + 1}: ${assignment.locationName.split(',')[0]}</h2>
+                        <div style="margin:1rem 0;">${rowsHtml}</div>
+                        <div style="border-top:1px solid #e5e7eb; padding-top:1rem; display:flex; gap:1rem;">
+                            <button class="product-btn" style="background:transparent; color:#111827; border:2px solid var(--border-color); padding:0.5rem 1rem;">Buy it again</button>
+                            <button style="background:transparent; color:#6b7280; border:none; text-decoration:underline; cursor:pointer;">Report a problem</button>
+                            ${order.status === 'Approved' ? '<button class="product-btn" style="background:#111827; color:#fff; padding:0.5rem 1rem; margin-left:auto;">Track package</button>' : ''}
+                        </div>
+                    `;
+                    container.appendChild(div);
+                });
+            } else {
+                const div = document.createElement('div');
+                div.style.cssText = 'border:2px solid var(--border-color); background:#fff; padding:1.5rem;';
+                let rowsHtml = order.items.map(item => {
+                    const delivery = (item.product && item.product.estimatedDelivery) ? item.product.estimatedDelivery : (item.estimatedDelivery || "Less than 10 days");
+                    return `
+                    <div style="display:flex; gap:1.5rem; margin-bottom:1rem;">
+                        <div style="width:60px; height:60px; border:1px solid #ccc; background:#f3f4f6;">${getProductSvg(item.product || item)}</div>
+                        <div>
+                            <div style="font-weight:bold;">${item.name}</div>
+                            <div style="color:#6b7280; font-size:0.9em;">Qty: ${item.quantity} | ${format(item.price)}</div>
+                            <div style="color: #111827; font-size: 0.95rem; font-weight: bold; margin-top: 4px;">Estimated delivery: ${delivery}</div>
+                        </div>
+                    </div>
+                `}).join('');
+                div.innerHTML = `
+                    <h2 style="margin-top:0; font-size:1.4rem;">Standard Freight Delivery</h2>
+                    <div style="margin:1rem 0;">${rowsHtml}</div>
+                    <div style="border-top:1px solid #e5e7eb; padding-top:1rem; display:flex; gap:1rem;">
+                        <button class="product-btn" style="background:transparent; color:#111827; border:2px solid var(--border-color); padding:0.5rem 1rem;">Buy it again</button>
+                        <button style="background:transparent; color:#6b7280; border:none; text-decoration:underline; cursor:pointer;">Report a problem</button>
+                        ${order.status === 'Approved' ? '<button class="product-btn" style="background:#111827; color:#fff; padding:0.5rem 1rem; margin-left:auto;">Track package</button>' : ''}
+                    </div>
+                `;
+                container.appendChild(div);
+            }
+
+            document.getElementById('order-details-view-invoice-btn').onclick = () => showInvoice(order.orderNum, 'order-details-view');
+        }
+
+        function showInvoice(orderNum, previousView) {
+            const order = orderHistory.find(o => o.orderNum === orderNum);
+            if (!order) return;
+            const refStr = order.orderNum.split('-').pop();
+
+            let shipHtml = order.shippingAssignments ? order.shippingAssignments.map((a, i) => `<div><strong>Destination ${String.fromCharCode(65+i)}:</strong> ${a.locationName} via ${order.carrier}</div>`).join('') : `<div>${order.shipTo}</div>`;
+            let itemsRows = '';
+
+            if (order.shippingAssignments) {
+                order.shippingAssignments.forEach((a, idx) => {
+                    itemsRows += `<tr style="background:#f9fafb; font-weight:bold;"><td colspan="5" style="padding:8px;">Location ${String.fromCharCode(65+idx)}: ${a.locationName.split(',')[0]}</td></tr>`;
+                    itemsRows += a.items.map(i => `
+                        <tr style="border-bottom:1px solid #e5e7eb;">
+                            <td style="padding:12px 8px;">${i.name}</td><td>${i.type || 'Hardware Asset'}</td><td style="text-align:center;">${i.quantity}</td><td style="text-align:right;">$${i.price.toLocaleString(undefined,{minimumFractionDigits:2})}</td><td style="text-align:right;">$${(i.price*i.quantity).toLocaleString(undefined,{minimumFractionDigits:2})}</td>
+                        </tr>
+                    `).join('');
+                });
+            } else {
+                itemsRows = order.items.map(i => `
+                    <tr style="border-bottom:1px solid #e5e7eb;">
+                        <td style="padding:12px 8px;">${i.name}</td><td>${i.product.type || 'Hardware Asset'}</td><td style="text-align:center;">${i.quantity}</td><td style="text-align:right;">$${i.price.toLocaleString(undefined,{minimumFractionDigits:2})}</td><td style="text-align:right;">$${(i.price*i.quantity).toLocaleString(undefined,{minimumFractionDigits:2})}</td>
+                    </tr>
+                `).join('');
+            }
+
+            document.getElementById('invoice-view').innerHTML = `
+                <div style="margin-bottom: 24px;"><a href="#" onclick="event.preventDefault(); MapsToView('${previousView}');" style="color: #4b5563; font-weight: bold; text-decoration:underline;">&larr; Back</a></div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:32px;">
+                    <h1 style="margin:0; font-size:24px; font-weight:bold;">Commercial Invoice / Bill of Sale</h1>
+                    <button style="border:2px solid #111827; background:transparent; padding:8px 16px; font-weight:bold;">📥 Download Invoice PDF</button>
+                </div>
+                <div style="border:2px solid #111827; padding:32px;">
+                    <div style="display:flex; justify-content:space-between; margin-bottom:32px; font-weight:bold;">
+                        <div>TRIMBLE CIVIL-CONSTRUCTION ECOSYSTEM</div><div>INVOICE REFERENCE: INV-2026-${refStr}</div>
+                    </div>
+                    <div style="display:flex; gap:32px; margin-bottom:32px; color:#4b5563; font-size:14px;">
+                        <div><strong>Invoice Date:</strong> ${order.date}</div><div><strong>Due Date:</strong> 30 Days Net Terms</div>
+                    </div>
+                    <div style="display:flex; gap:32px; margin-bottom:32px;">
+                        <div style="flex:1;"><strong>Sold To:</strong><br/>Trimble Civil-Corp accounts payable ledger division #98344</div>
+                        <div style="flex:1;"><strong>Ship To:</strong><br/>${shipHtml}</div>
+                    </div>
+                    <table style="width:100%; border-collapse:collapse; margin-bottom:32px; font-size:14px;">
+                        <thead><tr style="border-bottom:2px solid #111827;"><th style="text-align:left; padding:8px;">Description</th><th style="text-align:left; padding:8px;">Type</th><th style="text-align:center; padding:8px;">Qty</th><th style="text-align:right; padding:8px;">Unit Price</th><th style="text-align:right; padding:8px;">Total</th></tr></thead>
+                        <tbody>${itemsRows}</tbody>
+                    </table>
+                    <div style="display:flex; justify-content:flex-end;">
+                        <div style="width:300px; line-height:1.8; font-size:14px;">
+                            <div style="display:flex; justify-content:space-between;"><span>Subtotal:</span><span>$${order.subtotal.toLocaleString(undefined,{minimumFractionDigits:2})}</span></div>
+                            <div style="display:flex; justify-content:space-between;"><span>Logistics Freight Charges:</span><span>$${order.shippingHandling.toLocaleString(undefined,{minimumFractionDigits:2})}</span></div>
+                            <div style="display:flex; justify-content:space-between;"><span>Assessed Tax (8.25%):</span><span>$${order.tax.toLocaleString(undefined,{minimumFractionDigits:2})}</span></div>
+                            <div style="border-top:2px double #111827; font-weight:bold; font-size:16px; display:flex; justify-content:space-between; margin-top:8px; padding-top:8px;"><span>TOTAL DUE:</span><span>$${order.total.toLocaleString(undefined,{minimumFractionDigits:2})}</span></div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            MapsToView('invoice-view');
+        }
+
+        function renderOrderHistory() {
+            const container = document.getElementById('orders-history-container');
+            container.innerHTML = '';
+            orderHistory.forEach(order => {
+                let badgeStyle = order.status === 'Approved' ? 'border:2px solid #16a34a; color:#16a34a; background:#f0fdf4;' : 'border:2px solid #f97316; color:#ea580c; background:#fff7ed;';
+                const div = document.createElement('div');
+                div.style.cssText = 'border:2px solid #d1d5db; border-radius:4px; overflow:hidden; background-color:#fff;';
+                div.innerHTML = `
+                    <div style="background-color: #f9fafb; border-bottom: 2px solid #d1d5db; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+                        <div style="display: flex; gap: 3rem; color: #4b5563; font-size: 0.95rem;">
+                            <div><div style="text-transform: uppercase; font-size: 0.8rem; color:#6b7280; margin-bottom:4px;">Placed</div><strong>${order.date}</strong></div>
+                            <div><div style="text-transform: uppercase; font-size: 0.8rem; color:#6b7280; margin-bottom:4px;">Total</div><strong>$${order.total.toLocaleString(undefined,{minimumFractionDigits:2})}</strong></div>
+                            <div><div style="text-transform: uppercase; font-size: 0.8rem; color:#6b7280; margin-bottom:4px;">Ship To</div><strong>${order.shipTo.split(',')[0]}</strong></div>
+                            <div><div style="text-transform: uppercase; font-size: 0.8rem; color:#6b7280; margin-bottom:4px;">Carrier</div><strong>${order.carrier.split(' ')[0]}</strong></div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="font-weight: bold; margin-bottom: 4px;">Order ${order.orderNum}</div>
+                            <div style="display: flex; gap: 1rem; font-weight: bold; font-size:0.9rem;">
+                                <a href="#" style="color: #2563eb; text-decoration:none;" onclick="event.preventDefault(); orderNavigationSource='orders-history'; showOrderDetails('${order.orderNum}')">View details</a>
+                                <span style="color:#d1d5db;">|</span>
+                                <a href="#" style="color: #2563eb; text-decoration:none;" onclick="event.preventDefault(); showInvoice('${order.orderNum}', 'orders-history-view')">Invoice</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="padding: 1.5rem; display: flex; justify-content:space-between; align-items:center;">
+                        <div>${order.items.map(i => `<div style="font-weight:bold; margin-bottom:4px;">${i.name} (Qty: ${i.quantity})</div>`).join('')}</div>
+                        <div style="padding: 0.5rem 1rem; font-weight: bold; border-radius: 4px; ${badgeStyle}">${order.status}</div>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        // Initialize User Profile Records Menu Anchors
+        document.getElementById('nav-orders-link').addEventListener('click', () => {
+            document.getElementById('profile-dropdown').style.display = 'none';
+            ordersNavigationSource = currentActiveView;
+            
+            const ordersBackToCatalog = document.getElementById('orders-back-to-catalog');
+            if (ordersBackToCatalog) {
+                if (ordersNavigationSource === 'home-view') {
+                    ordersBackToCatalog.innerHTML = '&larr; Back to Home';
+                    ordersBackToCatalog.onclick = (e) => { e.preventDefault(); MapsToView('home-view'); };
+                } else {
+                    ordersBackToCatalog.innerHTML = '&larr; Back to Hardware Catalog';
+                    ordersBackToCatalog.onclick = (e) => { e.preventDefault(); MapsToView('catalog-view'); };
+                }
+            }
+            MapsToView('orders-history-view');
+            renderOrderHistory();
+        });
+
+        // Trigger Layout Setup
+        document.getElementById('profile-menu-toggle').addEventListener('click', (e) => {
+            e.stopPropagation();
+            const d = document.getElementById('profile-dropdown');
+            d.style.display = d.style.display === 'none' ? 'block' : 'none';
+        });
+        document.addEventListener('click', () => { document.getElementById('profile-dropdown').style.display = 'none'; });
+
+        // Clear old listener bindings and re-apply cleanly:
+        document.querySelectorAll('.filter-item input').forEach(input => {
+            input.removeEventListener('change', filterUpdateTrigger);
+            input.addEventListener('change', filterUpdateTrigger);
+        });
+
+        function filterUpdateTrigger() {
+            const compiledMatches = filterProducts();
+            renderProducts(compiledMatches);
+        }
+
+        const clearButton = document.querySelector('.clear-filters');
+        if (clearButton) {
+            clearButton.onclick = function() {
+                document.querySelectorAll('.filter-item input[type="checkbox"]').forEach(cb => cb.checked = false);
+                const APiradio = document.querySelector('input[name="industry"]');
+                if (APiradio) APiradio.checked = true;
+                renderProducts(filterProducts());
+            };
+        }
+
+        // Bootstrap App Starting Setup View
+        MapsToView('home-view');
+        renderProducts(filterProducts());
+    </script>
+</body>
+</html>
