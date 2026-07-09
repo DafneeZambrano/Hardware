@@ -47,23 +47,23 @@
 
     <main class="shop-container">
         <div id="home-view" class="content-area" style="display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 32px; min-height: 70vh;">
-            <a href="#" onclick="MapsToView('catalog-view'); return false;" class="card" style="text-decoration: none; color: inherit; width: 300px; border: 1px solid #d1d5db; border-radius: 8px; overflow: hidden; background: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-                <div class="card-image-placeholder" style="background-image: none; padding: 0; height: 200px;">
-                    <img src="assets/gnss-antenna.jpeg" alt="Shop Hardware" style="width: 100%; height: 100%; object-fit: cover; background-color: #f3f4f6; display: block;" />
+            <a href="#" onclick="MapsToView('catalog-view'); return false;" class="card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 460px; width: 380px; box-sizing: border-box; justify-content: space-between; border: 1px solid #d1d5db; border-radius: 8px; overflow: hidden; background: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <div class="card-image-placeholder" style="width: 100%; height: 240px; overflow: hidden; display: block; background-color: #fff;">
+                    <img src="Assets/shophardware.png" alt="Shop Hardware" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" />
                 </div>
-                <div class="card-content" style="padding: 1.5rem;">
+                <div class="card-content" style="flex-grow: 1; padding: 1.5rem; display: flex; flex-direction: column; justify-content: flex-start;">
                     <h2 style="margin-top: 0;">Shop Hardware</h2>
-                    <p>Description area for Shop Hardware section.</p>
+                    <p>Purchase Trimble components, replacement parts, and 3D grade integration kits directly for your construction needs</p>
                 </div>
             </a>
 
-            <a href="#" onclick="MapsToView('gst-tool-view'); return false;" class="card" style="text-decoration: none; color: inherit; width: 300px; border: 1px solid #d1d5db; border-radius: 8px; overflow: hidden; background: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-                <div class="card-image-placeholder" style="background-image: none; padding: 0; height: 200px;">
-                    <img src="assets/controller.jpg" alt="GST Tool" style="width: 100%; height: 100%; object-fit: cover; background-color: #f3f4f6; display: block;" />
+            <a href="#" onclick="MapsToView('gst-tool-view'); return false;" class="card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 460px; width: 380px; box-sizing: border-box; justify-content: space-between; border: 1px solid #d1d5db; border-radius: 8px; overflow: hidden; background: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <div class="card-image-placeholder" style="width: 100%; height: 240px; overflow: hidden; display: block; background-color: #fff;">
+                    <img src="Assets/GSTtool.png" alt="GST Tool" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" />
                 </div>
-                <div class="card-content" style="padding: 1.5rem;">
+                <div class="card-content" style="flex-grow: 1; padding: 1.5rem; display: flex; flex-direction: column; justify-content: flex-start;">
                     <h2 style="margin-top: 0;">GST Tool</h2>
-                    <p>Description area for GST Tool section.</p>
+                    <p>Access guided selling tool to configure a Trimble system for a specific machine type and model</p>
                 </div>
             </a>
         </div>
@@ -238,8 +238,8 @@
 
                     <div style="border: 2px solid var(--border-color); padding: 1.5rem; background: #fff;">
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-                            <h2 style="margin: 0; font-size: 1.5rem; font-weight: bold;">Carrier</h2>
-                            <a href="#" id="change-carrier-link" class="change-action" style="color: #1e40af; font-weight: 600; font-size: 14px; text-decoration: underline;">Change carrier</a>
+                            <h2 style="margin: 0; font-size: 1.5rem; font-weight: bold;">Shipping option</h2>
+                            <a href="#" id="change-carrier-link" class="change-action" style="color: #1e40af; font-weight: 600; font-size: 14px; text-decoration: underline;">Change shipping option</a>
                         </div>
                         <div style="color: #4b5563; line-height: 1.5;">
                             <div id="active-carrier-name">FedEx Corporate Freight (Standard Ground Layout)</div>
@@ -253,7 +253,7 @@
                         <ul style="list-style: none; padding: 0; margin: 0; color: #4b5563; line-height: 1.8;">
                             <li><strong>Billing Account:</strong> Trimble Civil-Corp #98344</li>
                             <li><strong>Payment Terms:</strong> Net 30 Days</li>
-                            <li><strong>Authorized Buyer Profile:</strong> Active Session User</li>
+                            <div style="margin-top: 4px; color: #4b5563; font-size: 0.9rem;"><span style="font-weight: bold; color: #111827;">Billing Location:</span> Trimble Enterprise Solutions, 935 Stewart Dr, Sunnyvale, CA 94085</div>
                         </ul>
                     </div>
 
@@ -301,8 +301,8 @@
 
                     <div style="border: 2px solid var(--border-color); padding: 1.5rem; background: #fff;">
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-                            <h2 style="margin: 0; font-size: 1.5rem; font-weight: bold;">Carrier</h2>
-                            <a href="#" id="change-carrier-link-multiple" class="change-action" style="color: #1e40af; font-weight: 600; font-size: 14px; text-decoration: underline;">Change carrier</a>
+                            <h2 style="margin: 0; font-size: 1.5rem; font-weight: bold;">Shipping option</h2>
+                            <a href="#" id="change-carrier-link-multiple" class="change-action" style="color: #1e40af; font-weight: 600; font-size: 14px; text-decoration: underline;">Change shipping option</a>
                         </div>
                         <div style="color: #4b5563; line-height: 1.5;">
                             <div id="active-carrier-name-multiple">FedEx Corporate Freight (Standard Ground Layout)</div>
@@ -316,7 +316,7 @@
                         <ul style="list-style: none; padding: 0; margin: 0; color: #4b5563; line-height: 1.8;">
                             <li><strong>Billing Account:</strong> Trimble Civil-Corp #98344</li>
                             <li><strong>Payment Terms:</strong> Net 30 Days</li>
-                            <li><strong>Authorized Buyer Profile:</strong> Active Session User</li>
+                            <div style="margin-top: 4px; color: #4b5563; font-size: 0.9rem;"><span style="font-weight: bold; color: #111827;">Billing Location:</span> Trimble Enterprise Solutions, 935 Stewart Dr, Sunnyvale, CA 94085</div>
                         </ul>
                     </div>
                 </div>
@@ -359,14 +359,7 @@
                 <h2 style="margin: 0 0 0.5rem 0; font-size: 1.25rem; font-weight: 600; color: #111827;">Details</h2>
                 <div id="dynamic-order-number" style="font-weight: normal; color: #374151; margin-bottom: 1.5rem; font-size: 1.1rem;">Order #TRM-2026-886663</div>
                 
-                <div style="display: flex; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem;">
-                    <div id="confirmation-arriving-block" style="flex: 1; min-width: 250px; color: #4b5563; line-height: 1.5;">
-                        <strong style="color: #111827;">Arriving:</strong> <span id="dynamic-delivery-time"></span>
-                    </div>
-                    <div style="flex: 1; min-width: 250px; color: #4b5563; line-height: 1.5;">
-                        <strong style="color: #111827;">Ship to:</strong> <span id="dynamic-ship-to">California warehouse, 1234 Construction Ave, San Francisco, CA 97201</span>
-                    </div>
-                </div>
+                <div id="confirmation-shipments-container" style="display: flex; flex-direction: column; gap: 1.5rem; margin: 1.5rem 0;"></div>
 
                 <div>
                     <button id="view-manage-order-btn" class="product-btn" style="background-color: #f9f9f9; color: var(--text-color); border: 2px solid var(--border-color); padding: 0.75rem 2rem; font-weight: bold;">View or manage order</button>
@@ -464,6 +457,7 @@
 
     <script>
         // Global State Configuration
+        const corporateBillingAddress = "Trimble Enterprise Solutions, 935 Stewart Dr, Sunnyvale, CA 94085";
         let currentActiveView = 'home-view';
         let cartNavigationSource = 'home-view';
         let ordersNavigationSource = 'catalog-view';
@@ -520,41 +514,41 @@
         }
 
         const products = [
-            { id: 1, name: "Trimble R980 Integrated GNSS Receiver", industry: "Geospatial", system: "Survey & Optical Systems", type: "GNSS Receivers & Smart Antennas", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Premium integrated GNSS receiver for professional surveying.", price: 14500, estimatedDelivery: "Less than 10 days" },
-            { id: 2, name: "Trimble R12i GNSS Receiver", industry: "Geospatial", system: "Survey & Optical Systems", type: "GNSS Receivers & Smart Antennas", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "GNSS receiver with IMU tilt compensation.", price: 16200, estimatedDelivery: "Less than 20 days" },
-            { id: 3, name: "Trimble R780 Smart Antenna", industry: "Civil Construction", system: "Site Positioning Systems (SPS)", type: "GNSS Receivers & Smart Antennas", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Rugged smart antenna built for tough jobsite conditions.", price: 11800, estimatedDelivery: "Less than 30 days" },
-            { id: 4, name: "Trimble R750 Modular GNSS Receiver", industry: "Civil Construction", system: "Site Positioning Systems (SPS)", type: "GNSS Receivers & Smart Antennas", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Modular infrastructure and base station receiver.", price: 13400, estimatedDelivery: "Less than 10 days" },
-            { id: 5, name: "Trimble S5 Robotic Total Station", industry: "Geospatial", system: "Survey & Optical Systems", type: "Total Stations & Scanners", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Reliable robotic total station for everyday surveying tasks.", price: 24500, estimatedDelivery: "Less than 20 days" },
-            { id: 6, name: "Trimble Ri Automated Total Station", industry: "Building Construction", system: "Survey & Optical Systems", type: "Total Stations & Scanners", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Scalable automated layout station for fast workflows.", price: 19800, estimatedDelivery: "Less than 30 days" },
-            { id: 7, name: "Trimble RTS773 Robotic Total Station", industry: "Building Construction", system: "Survey & Optical Systems", type: "Total Stations & Scanners", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Robotic total station engineered for building layout.", price: 27900, estimatedDelivery: "Less than 10 days" },
-            { id: 8, name: "Trimble X7 3D Laser Scanner", industry: "Building Construction", system: "Mobile Mapping & Reality Capture", type: "Total Stations & Scanners", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "High-speed 3D laser scanning system with auto-calibration.", price: 34000, estimatedDelivery: "Less than 20 days" },
-            { id: 13, name: "Trimble TSC7 Field Controller", industry: "Geospatial", system: "Survey & Optical Systems", type: "Controllers & Data Collectors", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Rugged field controller featuring a built-in keyboard.", price: 6200, estimatedDelivery: "Less than 10 days" },
-            { id: 14, name: "Trimble TSC5 Controller", industry: "Geospatial", system: "Survey & Optical Systems", type: "Controllers & Data Collectors", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Lightweight, Android-based rugged field controller.", price: 4100, estimatedDelivery: "Less than 20 days" },
-            { id: 15, name: "Trimble T100 Tablet", industry: "Civil Construction", system: "Site Positioning Systems (SPS)", type: "Controllers & Data Collectors", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "High-performance 10-inch rugged field tablet.", price: 5800, estimatedDelivery: "Less than 30 days" },
-            { id: 16, name: "Trimble T7 Tablet", industry: "Building Construction", system: "Survey & Optical Systems", type: "Controllers & Data Collectors", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Rugged 7-inch multi-touch construction tablet.", price: 4700, estimatedDelivery: "Less than 10 days" },
-            { id: 18, name: "Trimble TDL450B Radio Modem", industry: "Civil Construction", system: "Site Positioning Systems (SPS)", type: "On-Machine Radios & Gateways", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "External UHF data link radio for broadcasting base corrections.", price: 3200, estimatedDelivery: "Less than 20 days" },
-            { id: 19, name: "Trimble SNM941 Connected Site Gateway", industry: "Civil Construction", system: "Machine Control Systems (Earthworks/GCS)", type: "On-Machine Radios & Gateways", brand: "Trimble", machineCompatibility: "Universal", description: "Telematics and cellular gateway for heavy construction equipment.", price: 2100, estimatedDelivery: "Less than 30 days" },
-            { id: 22, name: "Trimble Dual Slot Battery Charger", industry: "Geospatial", system: "Survey & Optical Systems", type: "Accessories (Power, Brackets, Cases)", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Dual slot smart charger for field batteries.", price: 450, estimatedDelivery: "Less than 20 days" },
-            { id: 23, name: "Trimble Li-Ion Battery Pack (7.4V)", industry: "Geospatial", system: "Survey & Optical Systems", type: "Accessories (Power, Brackets, Cases)", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Rechargeable high-capacity field battery.", price: 220, estimatedDelivery: "Less than 30 days" },
-            { id: 24, name: "SECO 2-Meter Carbon Fiber Rover Pole", industry: "Geospatial", system: "Survey & Optical Systems", type: "Accessories (Power, Brackets, Cases)", brand: "SECO", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Lightweight fixed-height survey pole.", price: 380, estimatedDelivery: "Less than 10 days" },
-            { id: 25, name: "SECO Heavy Duty Aluminum Tripod", industry: "Civil Construction", system: "Site Positioning Systems (SPS)", type: "Accessories (Power, Brackets, Cases)", brand: "SECO", machineCompatibility: "None (Pole/Tripod Mounted)", description: "High-stability tripod for base stations.", price: 290, estimatedDelivery: "Less than 20 days" },
-            { id: 26, name: "Trimble Extended Radio Antenna", industry: "Civil Construction", system: "Site Positioning Systems (SPS)", type: "Accessories (Power, Brackets, Cases)", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "450 MHz whip antenna designed to maximize radio range.", price: 150, estimatedDelivery: "Less than 30 days" },
-            { id: 28, name: "Trimble GPS-to-Radio Lemo Cable (0.3m)", industry: "Civil Construction", system: "Site Positioning Systems (SPS)", type: "Cables & Harnesses", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Connects an R750 Base Receiver to a TDL450B radio.", price: 340, estimatedDelivery: "Less than 20 days" },
-            { id: 29, name: "Trimble Heavy Duty Multi-Battery Power Cable", industry: "Civil Construction", system: "Site Positioning Systems (SPS)", type: "Cables & Harnesses", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Field-ready power cables for base configurations.", price: 410, estimatedDelivery: "Less than 30 days" },
-            { id: 30, name: "Trimble Transport Case", industry: "Civil Construction", system: "Site Positioning Systems (SPS)", type: "Accessories (Power, Brackets, Cases)", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Hard-shell carrying case for R780 tracking systems.", price: 550, estimatedDelivery: "Less than 10 days" },
-            { id: 31, name: "Trimble Earthworks Dozer Dual GNSS Kit", industry: "Civil Construction", system: "Machine Control Systems (Earthworks/GCS)", type: "GNSS Receivers & Smart Antennas", brand: "Trimble", machineCompatibility: "Caterpillar (Cat Grade/AccuGrade)", description: "Premium 3D grade control kit for Dozers. Includes core display and tracking components.", isKit: true, keywords: ["dozer", "earthworks", "3d machine guidance kit"], price: 54000, estimatedDelivery: "Less than 20 days" },
-            { id: 32, name: "Trimble EC520-W System Controller", industry: "Civil Construction", system: "Machine Control Systems (Earthworks/GCS)", type: "On-Machine Radios & Gateways", brand: "Trimble", machineCompatibility: "Universal", description: "Brain unit controller component that processes 3D design models map data dynamically.", partOfKit: 31, kitDetails: "Core 3D Processing Unit / Cab Mount", price: 12500, estimatedDelivery: "Less than 30 days" },
-            { id: 33, name: "Trimble VM430 Valve Module", industry: "Civil Construction", system: "Machine Control Systems (Earthworks/GCS)", type: "Cables & Harnesses", brand: "Trimble", machineCompatibility: "Caterpillar (Cat Grade/AccuGrade)", description: "Proportional hydraulic control valve interface driving auto-blade adjustments.", partOfKit: 31, kitDetails: "Hydraulic Control Interface", price: 4200, estimatedDelivery: "Less than 10 days" },
-            { id: 34, name: "Trimble Dozer Dual GNSS Blade Harness", industry: "Civil Construction", system: "Machine Control Systems (Earthworks/GCS)", type: "Cables & Harnesses", brand: "Trimble", machineCompatibility: "John Deere Compatibility", description: "Rugged master wiring spine routing data lines securely across dozer blade masts.", partOfKit: 31, kitDetails: "Dual-Mast Blade Mast Routing Spine", price: 1850, estimatedDelivery: "Less than 20 days" },
-            { id: 17, name: "Trimble TD520 Display", industry: "Civil Construction", system: "Machine Control Systems (Earthworks/GCS)", type: "Controllers & Data Collectors", brand: "Trimble", machineCompatibility: "Caterpillar (Cat Grade/AccuGrade)", description: "In-cab high-definition touchscreen display running Earthworks field software.", partOfKit: 31, kitDetails: "In-Cab Touchscreen Command Console", price: 8900, estimatedDelivery: "Less than 30 days" },
-            { id: 10, name: "Trimble MS995 GNSS Smart Antenna", industry: "Civil Construction", system: "Machine Control Systems (Earthworks/GCS)", type: "GNSS Receivers & Smart Antennas", brand: "Trimble", machineCompatibility: "Caterpillar (Cat Grade/AccuGrade)", description: "Shock-isolated tracking antenna engineered for extreme machine vibration environments.", partOfKit: 31, kitDetails: "Blade Tracking Antenna - Setup Requires 2", price: 12200, estimatedDelivery: "Less than 10 days" },
-            { id: 20, name: "Trimble SNR430 On-Machine Radio", industry: "Civil Construction", system: "Machine Control Systems (Earthworks/GCS)", type: "On-Machine Radios & Gateways", brand: "Trimble", machineCompatibility: "Caterpillar (Cat Grade/AccuGrade)", description: "Heavy duty data radio providing highly stable wireless site RTK correction telemetry.", partOfKit: 31, kitDetails: "Site Data Link Communication Radio", price: 4400, estimatedDelivery: "Less than 20 days" },
-            { id: 40, name: "Trimble SPS855 Site Positioning Base Station Kit", industry: "Civil Construction", system: "Site Positioning Systems (SPS)", type: "GNSS Receivers & Smart Antennas", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Complete rugged base station kit for broadcasting reliable jobsite RTK corrections.", isKit: true, keywords: ["base station", "sps855"], price: 19500, estimatedDelivery: "Less than 30 days" },
-            { id: 50, name: "Trimble S5 Robotic Total Station Survey Kit", industry: "Geospatial", system: "Survey & Optical Systems", type: "Total Stations & Scanners", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "All-in-one motorized robotic optical measurement kit tailored for land surveying teams.", isKit: true, keywords: ["robotic kit", "s5"], price: 31000, estimatedDelivery: "Less than 30 days" },
-            { id: "spectra-sp85", name: "Spectra Geospatial SP85 GNSS Receiver", brand: "Spectra Geospatial", type: "GNSS Receivers & Smart Antennas", industry: ["Geospatial", "Civil Construction"], machineCompatibility: ["Volvo", "Komatsu"], price: 12400.00, description: "High-performance satellite tracking receiver featuring unique 6G GNSS-centric technology.", estimatedDelivery: "Less than 10 days" },
-            { id: "spectra-focus35", name: "Spectra Focus 35 Robotic Total Station", brand: "Spectra Geospatial", type: "Total Stations & Scanners", industry: ["Geospatial", "Building Construction"], machineCompatibility: [], price: 19800.00, description: "Motorized optical survey instrument offering high-speed scanning and automated layout tracking.", estimatedDelivery: "Less than 20 days" },
-            { id: "trimble-v9-kit", name: "Trimble Volvo-Grade 3D Excavator Guidance Kit", brand: "Trimble", type: "GNSS Receivers & Smart Antennas", industry: ["Civil Construction"], machineCompatibility: ["Volvo"], price: 24500.00, description: "Complete heavy machinery guidance bundle engineered exclusively for Volvo machine control systems.", estimatedDelivery: "Less than 10 days" },
-            { id: "trimble-k8-harness", name: "Trimble Komatsu Valve Control Mast Harness", brand: "Trimble", type: "Cables & Harnesses", industry: ["Civil Construction"], machineCompatibility: ["Komatsu"], price: 1850.00, description: "Heavy-duty poly-braided wiring harness designed for direct chassis routing on Komatsu profiles.", estimatedDelivery: "Less than 30 days" }
+            { id: 1, name: "Trimble R980 Integrated GNSS Receiver", industry: "Geospatial", system: "Survey & Optical Systems", type: "GNSS Receivers & Smart Antennas", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Premium integrated GNSS receiver for professional surveying.", price: 14500, estimatedDelivery: "Less than 10 days", inventoryStatus: "In Stock" },
+            { id: 2, name: "Trimble R12i GNSS Receiver", industry: "Geospatial", system: "Survey & Optical Systems", type: "GNSS Receivers & Smart Antennas", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "GNSS receiver with IMU tilt compensation.", price: 16200, estimatedDelivery: "Less than 20 days", inventoryStatus: "In Stock" },
+            { id: 3, name: "Trimble R780 Smart Antenna", industry: "Civil Construction", system: "Site Positioning Systems (SPS)", type: "GNSS Receivers & Smart Antennas", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Rugged smart antenna built for tough jobsite conditions.", price: 11800, estimatedDelivery: "Less than 30 days", inventoryStatus: "Limited Stock" },
+            { id: 4, name: "Trimble R750 Modular GNSS Receiver", industry: "Civil Construction", system: "Site Positioning Systems (SPS)", type: "GNSS Receivers & Smart Antennas", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Modular infrastructure and base station receiver.", price: 13400, estimatedDelivery: "Less than 10 days", inventoryStatus: "In Stock" },
+            { id: 5, name: "Trimble S5 Robotic Total Station", industry: "Geospatial", system: "Survey & Optical Systems", type: "Total Stations & Scanners", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Reliable robotic total station for everyday surveying tasks.", price: 24500, estimatedDelivery: "Less than 20 days", inventoryStatus: "In Stock" },
+            { id: 6, name: "Trimble Ri Automated Total Station", industry: "Building Construction", system: "Survey & Optical Systems", type: "Total Stations & Scanners", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Scalable automated layout station for fast workflows.", price: 19800, estimatedDelivery: "Less than 30 days", inventoryStatus: "Limited Stock" },
+            { id: 7, name: "Trimble RTS773 Robotic Total Station", industry: "Building Construction", system: "Survey & Optical Systems", type: "Total Stations & Scanners", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Robotic total station engineered for building layout.", price: 27900, estimatedDelivery: "Less than 10 days", inventoryStatus: "In Stock" },
+            { id: 8, name: "Trimble X7 3D Laser Scanner", industry: "Building Construction", system: "Mobile Mapping & Reality Capture", type: "Total Stations & Scanners", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "High-speed 3D laser scanning system with auto-calibration.", price: 34000, estimatedDelivery: "Less than 20 days", inventoryStatus: "In Stock" },
+            { id: 13, name: "Trimble TSC7 Field Controller", industry: "Geospatial", system: "Survey & Optical Systems", type: "Controllers & Data Collectors", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Rugged field controller featuring a built-in keyboard.", price: 6200, estimatedDelivery: "Less than 10 days", inventoryStatus: "In Stock" },
+            { id: 14, name: "Trimble TSC5 Controller", industry: "Geospatial", system: "Survey & Optical Systems", type: "Controllers & Data Collectors", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Lightweight, Android-based rugged field controller.", price: 4100, estimatedDelivery: "Less than 20 days", inventoryStatus: "Limited Stock" },
+            { id: 15, name: "Trimble T100 Tablet", industry: "Civil Construction", system: "Site Positioning Systems (SPS)", type: "Controllers & Data Collectors", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "High-performance 10-inch rugged field tablet.", price: 5800, estimatedDelivery: "Less than 30 days", inventoryStatus: "In Stock" },
+            { id: 16, name: "Trimble T7 Tablet", industry: "Building Construction", system: "Survey & Optical Systems", type: "Controllers & Data Collectors", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Rugged 7-inch multi-touch construction tablet.", price: 4700, estimatedDelivery: "Less than 10 days", inventoryStatus: "In Stock" },
+            { id: 18, name: "Trimble TDL450B Radio Modem", industry: "Civil Construction", system: "Site Positioning Systems (SPS)", type: "On-Machine Radios & Gateways", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "External UHF data link radio for broadcasting base corrections.", price: 3200, estimatedDelivery: "Less than 20 days", inventoryStatus: "Out of Stock" },
+            { id: 19, name: "Trimble SNM941 Connected Site Gateway", industry: "Civil Construction", system: "Machine Control Systems (Earthworks/GCS)", type: "On-Machine Radios & Gateways", brand: "Trimble", machineCompatibility: "Universal", description: "Telematics and cellular gateway for heavy construction equipment.", price: 2100, estimatedDelivery: "Less than 30 days", inventoryStatus: "In Stock" },
+            { id: 22, name: "Trimble Dual Slot Battery Charger", industry: "Geospatial", system: "Survey & Optical Systems", type: "Accessories (Power, Brackets, Cases)", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Dual slot smart charger for field batteries.", price: 450, estimatedDelivery: "Less than 20 days", inventoryStatus: "In Stock" },
+            { id: 23, name: "Trimble Li-Ion Battery Pack (7.4V)", industry: "Geospatial", system: "Survey & Optical Systems", type: "Accessories (Power, Brackets, Cases)", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Rechargeable high-capacity field battery.", price: 220, estimatedDelivery: "Less than 30 days", inventoryStatus: "In Stock" },
+            { id: 24, name: "SECO 2-Meter Carbon Fiber Rover Pole", industry: "Geospatial", system: "Survey & Optical Systems", type: "Accessories (Power, Brackets, Cases)", brand: "SECO", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Lightweight fixed-height survey pole.", price: 380, estimatedDelivery: "Less than 10 days", inventoryStatus: "Limited Stock" },
+            { id: 25, name: "SECO Heavy Duty Aluminum Tripod", industry: "Civil Construction", system: "Site Positioning Systems (SPS)", type: "Accessories (Power, Brackets, Cases)", brand: "SECO", machineCompatibility: "None (Pole/Tripod Mounted)", description: "High-stability tripod for base stations.", price: 290, estimatedDelivery: "Less than 20 days", inventoryStatus: "In Stock" },
+            { id: 26, name: "Trimble Extended Radio Antenna", industry: "Civil Construction", system: "Site Positioning Systems (SPS)", type: "Accessories (Power, Brackets, Cases)", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "450 MHz whip antenna designed to maximize radio range.", price: 150, estimatedDelivery: "Less than 30 days", inventoryStatus: "In Stock" },
+            { id: 28, name: "Trimble GPS-to-Radio Lemo Cable (0.3m)", industry: "Civil Construction", system: "Site Positioning Systems (SPS)", type: "Cables & Harnesses", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Connects an R750 Base Receiver to a TDL450B radio.", price: 340, estimatedDelivery: "Less than 20 days", inventoryStatus: "Out of Stock" },
+            { id: 29, name: "Trimble Heavy Duty Multi-Battery Power Cable", industry: "Civil Construction", system: "Site Positioning Systems (SPS)", type: "Cables & Harnesses", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Field-ready power cables for base configurations.", price: 410, estimatedDelivery: "Less than 30 days", inventoryStatus: "In Stock" },
+            { id: 30, name: "Trimble Transport Case", industry: "Civil Construction", system: "Site Positioning Systems (SPS)", type: "Accessories (Power, Brackets, Cases)", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Hard-shell carrying case for R780 tracking systems.", price: 550, estimatedDelivery: "Less than 10 days", inventoryStatus: "In Stock" },
+            { id: 31, name: "Trimble Earthworks Dozer Dual GNSS Kit", industry: "Civil Construction", system: "Machine Control Systems (Earthworks/GCS)", type: "GNSS Receivers & Smart Antennas", brand: "Trimble", machineCompatibility: "Caterpillar (Cat Grade/AccuGrade)", description: "Premium 3D grade control kit for Dozers. Includes core display and tracking components.", isKit: true, keywords: ["dozer", "earthworks", "3d machine guidance kit"], price: 54000, estimatedDelivery: "Less than 20 days", inventoryStatus: "Limited Stock" },
+            { id: 32, name: "Trimble EC520-W System Controller", industry: "Civil Construction", system: "Machine Control Systems (Earthworks/GCS)", type: "On-Machine Radios & Gateways", brand: "Trimble", machineCompatibility: "Universal", description: "Brain unit controller component that processes 3D design models map data dynamically.", partOfKit: 31, kitDetails: "Core 3D Processing Unit / Cab Mount", price: 12500, estimatedDelivery: "Less than 30 days", inventoryStatus: "In Stock" },
+            { id: 33, name: "Trimble VM430 Valve Module", industry: "Civil Construction", system: "Machine Control Systems (Earthworks/GCS)", type: "Cables & Harnesses", brand: "Trimble", machineCompatibility: "Caterpillar (Cat Grade/AccuGrade)", description: "Proportional hydraulic control valve interface driving auto-blade adjustments.", partOfKit: 31, kitDetails: "Hydraulic Control Interface", price: 4200, estimatedDelivery: "Less than 10 days", inventoryStatus: "In Stock" },
+            { id: 34, name: "Trimble Dozer Dual GNSS Blade Harness", industry: "Civil Construction", system: "Machine Control Systems (Earthworks/GCS)", type: "Cables & Harnesses", brand: "Trimble", machineCompatibility: "John Deere Compatibility", description: "Rugged master wiring spine routing data lines securely across dozer blade masts.", partOfKit: 31, kitDetails: "Dual-Mast Blade Mast Routing Spine", price: 1850, estimatedDelivery: "Less than 20 days", inventoryStatus: "In Stock" },
+            { id: 17, name: "Trimble TD520 Display", industry: "Civil Construction", system: "Machine Control Systems (Earthworks/GCS)", type: "Controllers & Data Collectors", brand: "Trimble", machineCompatibility: "Caterpillar (Cat Grade/AccuGrade)", description: "In-cab high-definition touchscreen display running Earthworks field software.", partOfKit: 31, kitDetails: "In-Cab Touchscreen Command Console", price: 8900, estimatedDelivery: "Less than 30 days", inventoryStatus: "In Stock" },
+            { id: 10, name: "Trimble MS995 GNSS Smart Antenna", industry: "Civil Construction", system: "Machine Control Systems (Earthworks/GCS)", type: "GNSS Receivers & Smart Antennas", brand: "Trimble", machineCompatibility: "Caterpillar (Cat Grade/AccuGrade)", description: "Shock-isolated tracking antenna engineered for extreme machine vibration environments.", partOfKit: 31, kitDetails: "Blade Tracking Antenna - Setup Requires 2", price: 12200, estimatedDelivery: "Less than 10 days", inventoryStatus: "In Stock" },
+            { id: 20, name: "Trimble SNR430 On-Machine Radio", industry: "Civil Construction", system: "Machine Control Systems (Earthworks/GCS)", type: "On-Machine Radios & Gateways", brand: "Trimble", machineCompatibility: "Caterpillar (Cat Grade/AccuGrade)", description: "Heavy duty data radio providing highly stable wireless site RTK correction telemetry.", partOfKit: 31, kitDetails: "Site Data Link Communication Radio", price: 4400, estimatedDelivery: "Less than 20 days", inventoryStatus: "In Stock" },
+            { id: 40, name: "Trimble SPS855 Site Positioning Base Station Kit", industry: "Civil Construction", system: "Site Positioning Systems (SPS)", type: "GNSS Receivers & Smart Antennas", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Complete rugged base station kit for broadcasting reliable jobsite RTK corrections.", isKit: true, keywords: ["base station", "sps855"], price: 19500, estimatedDelivery: "Less than 30 days", inventoryStatus: "In Stock" },
+            { id: 50, name: "Trimble S5 Robotic Total Station Survey Kit", industry: "Geospatial", system: "Survey & Optical Systems", type: "Total Stations & Scanners", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "All-in-one motorized robotic optical measurement kit tailored for land surveying teams.", isKit: true, keywords: ["robotic kit", "s5"], price: 31000, estimatedDelivery: "Less than 30 days", inventoryStatus: "In Stock" },
+            { id: "spectra-sp85", name: "Spectra Geospatial SP85 GNSS Receiver", brand: "Spectra Geospatial", type: "GNSS Receivers & Smart Antennas", industry: ["Geospatial", "Civil Construction"], machineCompatibility: ["Volvo", "Komatsu"], price: 12400.00, description: "High-performance satellite tracking receiver featuring unique 6G GNSS-centric technology.", estimatedDelivery: "Less than 10 days", inventoryStatus: "In Stock" },
+            { id: "spectra-focus35", name: "Spectra Focus 35 Robotic Total Station", brand: "Spectra Geospatial", type: "Total Stations & Scanners", industry: ["Geospatial", "Building Construction"], machineCompatibility: [], price: 19800.00, description: "Motorized optical survey instrument offering high-speed scanning and automated layout tracking.", estimatedDelivery: "Less than 20 days", inventoryStatus: "Limited Stock" },
+            { id: "trimble-v9-kit", name: "Trimble Volvo-Grade 3D Excavator Guidance Kit", brand: "Trimble", type: "GNSS Receivers & Smart Antennas", industry: ["Civil Construction"], machineCompatibility: ["Volvo"], price: 24500.00, description: "Complete heavy machinery guidance bundle engineered exclusively for Volvo machine control systems.", estimatedDelivery: "Less than 10 days", inventoryStatus: "In Stock" },
+            { id: "trimble-k8-harness", name: "Trimble Komatsu Valve Control Mast Harness", brand: "Trimble", type: "Cables & Harnesses", industry: ["Civil Construction"], machineCompatibility: ["Komatsu"], price: 1850.00, description: "Heavy-duty poly-braided wiring harness designed for direct chassis routing on Komatsu profiles.", estimatedDelivery: "Less than 30 days", inventoryStatus: "In Stock" }
         ];
 
         let cart = [];
@@ -647,7 +641,6 @@
             }
             updateNavbarCartBadge();
             renderMiniCart();
-            alert('Added to cart');
         }
 
         function updateOrderSummary() {
@@ -956,6 +949,23 @@
             return `<img src="${path}" alt="${product.name || 'Hardware Asset'}" style="width: 100%; height: 100%; object-fit: contain; background-color: #f3f4f6; border-radius: 4px; display: block;" />`;
         }
 
+        function getInventoryStatusHtml(status) {
+            if (!status) return '';
+            let color = '';
+            let text = '';
+            if (status === 'In Stock') {
+                color = '#16a34a';
+                text = '● Plenty in stock';
+            } else if (status === 'Limited Stock') {
+                color = '#d97706';
+                text = '● Limited availability';
+            } else if (status === 'Out of Stock') {
+                color = '#dc2626';
+                text = '● Out of stock - Contact Admin';
+            }
+            return `<div style="color: ${color}; font-size: 13px; font-weight: bold; margin-bottom: 8px;">${text}</div>`;
+        }
+
         function renderProducts(filteredProducts) {
             const grid = document.querySelector('.products-grid');
             grid.innerHTML = '';
@@ -971,7 +981,8 @@
                     <div class="product-image" style="background-image: none; padding: 0;">${getProductSvg(product)}</div>
                     <div class="product-info">
                         <div class="product-name" style="font-weight: bold; font-size: 1.1rem; color: #111827;">${product.name}</div>
-                        <div class="product-desc" style="color: #4b5563; font-size: 0.95rem; margin-top: 4px;">${product.description}</div>
+                        <div class="product-desc" style="color: #4b5563; font-size: 0.95rem; margin-top: 4px; margin-bottom: 8px;">${product.description}</div>
+                        ${getInventoryStatusHtml(product.inventoryStatus)}
                         <div style="color: #111827; font-weight: bold; font-size: 18px; margin-top: auto; margin-bottom: 8px;">$${product.price.toLocaleString()}</div>
                         <button class="product-btn add-to-cart-btn">Add to cart</button>
                     </div>
@@ -1033,21 +1044,60 @@
                 if (rawTerm.length >= 2) {
                     const tokens = rawTerm.toLowerCase().split(/\s+/);
                     const matches = products.filter(p => tokens.every(t => p.name.toLowerCase().includes(t))).slice(0, 6);
-                    if (matches.length > 0) {
-                        searchSuggestions.innerHTML = matches.map((m, i) => `
-                            <div class="suggestion-item" onclick="selectSuggestion('${m.name}')" style="padding: 8px 12px; cursor: pointer; border-bottom: 1px solid #f3f4f6; display: flex; gap: 12px;">
-                                <div style="color: #9ca3af; font-size: 11px; width: 80px; text-transform: uppercase;">${m.type.split(' ')[0]}</div>
-                                <div style="font-weight: 600; color: #111827;">${m.name}</div>
-                            </div>
-                        `).join('');
+                    
+                    let token = rawTerm.toUpperCase();
+                    let matchedOrders = orderHistory.filter(o => o.orderNum.toUpperCase().includes(token)).slice(0, 3);
+                    
+                    if (matches.length > 0 || matchedOrders.length > 0) {
+                        let html = '';
+                        
+                        if (matchedOrders.length > 0) {
+                            html += matchedOrders.map(o => `
+                                <div class="suggestion-item" onclick="selectOrderSuggestion('${o.orderNum}')" style="padding: 8px 12px; cursor: pointer; border-bottom: 1px solid #f3f4f6; display: flex; gap: 12px; background-color: #f9fafb;">
+                                    <div style="color: #9ca3af; font-size: 11px; width: 80px; text-transform: uppercase; font-weight: bold;">ORDER</div>
+                                    <div style="font-weight: 600; color: #111827;">ORDER #${o.orderNum}</div>
+                                </div>
+                            `).join('');
+                        }
+                        
+                        if (matches.length > 0) {
+                            html += matches.map((m, i) => `
+                                <div class="suggestion-item" onclick="selectSuggestion('${m.name}')" style="padding: 8px 12px; cursor: pointer; border-bottom: 1px solid #f3f4f6; display: flex; gap: 12px;">
+                                    <div style="color: #9ca3af; font-size: 11px; width: 80px; text-transform: uppercase;">${m.type.split(' ')[0]}</div>
+                                    <div style="font-weight: 600; color: #111827;">${m.name}</div>
+                                </div>
+                            `).join('');
+                        }
+                        
+                        searchSuggestions.innerHTML = html;
                         searchSuggestions.style.display = 'block';
                     } else { searchSuggestions.style.display = 'none'; }
                 } else { searchSuggestions.style.display = 'none'; }
             });
 
             searchInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    searchSuggestions.style.display = 'none';
+                    searchInput.blur();
+                }
                 if (e.key === 'Enter') {
                     e.preventDefault();
+                    
+                    let query = searchInput.value.trim().toUpperCase();
+                    let orderMatches = orderHistory.filter(o => o.orderNum.toUpperCase().includes(query));
+
+                    if (orderMatches.length === 1) {
+                        searchSuggestions.style.display = 'none';
+                        orderNavigationSource = 'orders-history';
+                        showOrderDetails(orderMatches[0].orderNum);
+                        return;
+                    } else if (orderMatches.length > 1) {
+                        searchSuggestions.style.display = 'none';
+                        MapsToView('orders-history-view');
+                        renderOrderHistory(orderMatches);
+                        return;
+                    }
+
                     MapsToView('catalog-view');
                     searchSuggestions.style.display = 'none';
                     renderProducts(filterProducts());
@@ -1056,11 +1106,19 @@
         }
 
         function selectSuggestion(name) {
-            searchInput.value = name;
             searchSuggestions.style.display = 'none';
+            searchInput.value = name;
             searchClearBtn.style.display = 'block';
             MapsToView('catalog-view');
             renderProducts(filterProducts());
+        }
+
+        function selectOrderSuggestion(orderNum) {
+            searchSuggestions.style.display = 'none';
+            searchInput.value = orderNum;
+            searchClearBtn.style.display = 'block';
+            orderNavigationSource = 'orders-history';
+            showOrderDetails(orderNum);
         }
 
         function renderPDP(productId) {
@@ -1083,7 +1141,8 @@
                     </div>
                     <div style="flex: 1; display: flex; flex-direction: column; gap: 1.5rem; min-width: 300px;">
                         <h1 style="font-size: 2.5rem; margin: 0;">${product.name}</h1>
-                        <p style="font-size: 1.1rem; color: #4b5563; line-height: 1.5;">${product.description} Built ruggedly for heavy-duty operational testing arrays.</p>
+                        <p style="font-size: 1.1rem; color: #4b5563; line-height: 1.5; margin: 0;">${product.description} Built ruggedly for heavy-duty operational testing arrays.</p>
+                        ${getInventoryStatusHtml(product.inventoryStatus)}
                         ${relHtml}
                         <div style="font-size: 36px;">$${product.price.toLocaleString()}</div>
                         <button class="product-btn" id="pdp-add-to-cart" style="background-color:#111827; color:#fff; padding:14px;">Add to Cart</button>
@@ -1110,6 +1169,8 @@
                             <div style="flex: 1;">
                                 <a href="#" class="bom-item-link" data-id="${item.id}" style="color: #2563eb; text-decoration: underline; font-weight: bold; font-size: 1.1rem; display: block; margin-bottom: 0.25rem;">${item.name}</a>
                                 <div style="color: #6b7280; font-size: 0.9rem;">${item.kitDetails || ''}</div>
+                                <div style="color: #4b5563; font-size: 0.9em; margin-top: 2px; margin-bottom: 4px;">${item.description}</div>
+                                ${getInventoryStatusHtml(item.inventoryStatus)}
                             </div>
                             <div style="font-weight: bold; width: 100px; text-align: right;">$${item.price.toLocaleString()}</div>
                             <input type="number" class="bom-qty" value="1" min="1" style="width: 60px; padding: 0.5rem; border: 2px solid var(--border-color);">
@@ -1193,7 +1254,7 @@
                             if (itemProd && qty > 0) addToCart(itemProd, qty);
                         }
                     });
-                    alert('Custom pieces staged in your order queue successfully!');
+                    // alert('Custom pieces staged in your order queue successfully!');
                 });
                 updateStickyFooter();
             }
@@ -1219,7 +1280,12 @@
             document.getElementById('tab-standard-checkout').style.cssText = 'font-weight: bold; color: #111827; border-bottom: 2px solid #111827; padding-bottom: 0.5rem;';
             document.getElementById('tab-multiple-locations').style.cssText = 'color: #6b7280; padding-bottom: 0.5rem;';
             
-            unassignedItems = cart.filter(item => item.activeForCheckout).map(item => ({ ...item, selectedForAssignment: false }));
+            // Map items tracking original cart reference and setting dynamic live pool balance
+            unassignedItems = cart.filter(item => item.activeForCheckout).map(item => ({ 
+                ...item, 
+                remainingQty: item.quantity, 
+                selectedForAssignment: false 
+            }));
             MapsToView('checkout-view');
             renderCheckoutView();
         }
@@ -1276,8 +1342,10 @@
             updatePlaceOrderButtonState();
         });
 
+        // 2. Re-engineered Unassigned Card Grid with Custom Selector
         function renderSplitShipping() {
             const container = document.getElementById('unassigned-items-container');
+            if (!container) return;
             container.innerHTML = '';
             const assignBtn = document.getElementById('assign-items-btn');
 
@@ -1289,41 +1357,105 @@
                 unassignedItems.forEach((item, idx) => {
                     const product = products.find(p => p.id === item.id) || item;
                     const isSelected = item.selectedForAssignment;
+                    
+                    // Build dropdown selections up to current remaining quantity threshold pool limits
+                    let qtySelectHtml = '';
+                    if (item.remainingQty > 1) {
+                        let optionsHtml = '';
+                        for (let i = 1; i <= item.remainingQty; i++) {
+                            const isMax = (i === item.remainingQty) ? 'selected' : '';
+                            optionsHtml += `<option value="${i}" ${isMax}>${i}</option>`;
+                        }
+                        qtySelectHtml = `
+                            <div style="display: flex; align-items: center; gap: 0.5rem;" onclick="event.stopPropagation();">
+                                <label style="font-weight: bold; font-size: 0.85rem; color:#4b5563;">Qty to ship:</label>
+                                <select class="assign-qty-picker" data-index="${idx}" style="padding: 0.25rem; border: 2px solid var(--border-color); font-weight: bold;">
+                                    ${optionsHtml}
+                                </select>
+                            </div>
+                        `;
+                    } else {
+                        qtySelectHtml = `<input type="hidden" class="assign-qty-picker" data-index="${idx}" value="1"><span style="color:#6b7280; font-size:0.875rem;">Qty: 1</span>`;
+                    }
+
                     const div = document.createElement('div');
-                    div.style.cssText = `position:relative; display:flex; align-items:center; gap:1rem; padding:1rem; border:${isSelected ? '2px solid #2563eb' : '1px solid #e5e7eb'}; background:${isSelected ? '#eff6ff' : '#fff'}; cursor:pointer;`;
+                    div.className = "unassigned-item-card";
+                    div.style.cssText = `position:relative; display:flex; align-items:center; gap:1rem; padding:1rem; border:${isSelected ? '2px solid #2563eb' : '1px solid #e5e7eb'}; background:${isSelected ? '#eff6ff' : '#fff'}; cursor:pointer; margin-bottom: 0.5rem;`;
                     div.innerHTML = `
-                        ${isSelected ? '<div style="position:absolute; top:-10px; right:-10px; background:#2563eb; color:#fff; width:24px; height:24px; border-radius:50%; display:flex; justify-content:center; align-items:center; font-weight:bold; z-index:1;">✓</div>' : ''}
-                        <div style="width:60px; height:45px; border:1px solid #ccc; display:flex; justify-content:center; background:#fff;">${getProductSvg(product)}</div>
+                        <input type="checkbox" class="assign-row-checkbox" data-index="${idx}" ${isSelected ? 'checked' : ''} style="width:18px; height:18px; cursor:pointer;" onclick="event.stopPropagation();">
+                        <div style="width:60px; height:45px; border:1px solid #ccc; display:flex; justify-content:center; background:#fff; flex-shrink:0;">${getProductSvg(product)}</div>
                         <div style="flex:1;">
                             <div style="font-weight:bold; color:#111827;">${item.name}</div>
-                            <div style="color:#6b7280; font-size:0.875rem;">Qty: ${item.quantity}</div>
+                            <div style="margin-top:4px; display:flex; align-items:center; gap:1.5rem;">
+                                ${qtySelectHtml}
+                            </div>
                         </div>
-                        <div style="font-weight:bold; color:#111827;">$${(item.price * item.quantity).toLocaleString(undefined, {minimumFractionDigits:2})}</div>
+                        <div style="font-weight:bold; color:#111827; text-align:right; flex-shrink:0;">$${item.price.toLocaleString(undefined, {minimumFractionDigits:2})}</div>
                     `;
-                    div.onclick = () => { unassignedItems[idx].selectedForAssignment = !unassignedItems[idx].selectedForAssignment; renderSplitShipping(); };
+
+                    // Handle card click row toggle selections safely
+                    div.addEventListener('click', () => {
+                        unassignedItems[idx].selectedForAssignment = !unassignedItems[idx].selectedForAssignment;
+                        renderSplitShipping();
+                    });
+
+                    // Synchronize the raw checkbox click behavior
+                    const checkbox = div.querySelector('.assign-row-checkbox');
+                    checkbox.addEventListener('change', (e) => {
+                        unassignedItems[idx].selectedForAssignment = e.target.checked;
+                        renderSplitShipping();
+                    });
+
                     container.appendChild(div);
                 });
             }
 
-            // Render Output Assignments Manifest List Blocks
+            // 3. Render output summaries inside clean matching UI cards with estimated delivery
             const manifestContainer = document.getElementById('shipping-assignments-container');
-            manifestContainer.innerHTML = '';
-            shippingAssignments.forEach((assignment, aIdx) => {
-                const card = document.createElement('div');
-                card.style.cssText = 'border: 2px solid var(--border-color); padding: 1.5rem; background: #fff; position: relative; margin-bottom:1rem;';
-                let itemsListHtml = assignment.items.map(i => `<li>${i.name} (Qty: ${i.quantity})</li>`).join('');
-                card.innerHTML = `
-                    <button class="delete-assignment-btn" onclick="removeAssignment(${aIdx})" style="position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; cursor: pointer; color: #ef4444;">🗑️</button>
-                    <h2 style="margin: 0 0 1rem 0; font-size: 1.5rem;">Shipping Assignment: ${assignment.locationName}</h2>
-                    <ul style="padding-left:1.2rem; color:#4b5563; line-height:1.6;">${itemsListHtml}</ul>
-                `;
-                manifestContainer.appendChild(card);
-            });
+            if (manifestContainer) {
+                manifestContainer.innerHTML = '';
+                shippingAssignments.forEach((assignment, aIdx) => {
+                    const card = document.createElement('div');
+                    card.style.cssText = 'border: 2px solid var(--border-color); padding: 1.5rem; background: #fff; position: relative; margin-bottom:1rem;';
+                    
+                    let itemsRowsHtml = assignment.items.map((i, iIdx) => {
+                        const baseProd = products.find(p => p.id === i.id) || i;
+                        return `
+                            <div style="display: flex; align-items: center; gap: 1rem; padding: 1rem; border: 1px solid #d1d5db; background-color: #f9f9f9; margin-bottom: 0.5rem;">
+                                <div style="width:60px; height:45px; border:1px solid #ccc; display:flex; justify-content:center; background:#fff;">${getProductSvg(baseProd)}</div>
+                                <div style="flex:1;">
+                                    <div style="color:#111827;"><strong>${i.name}</strong></div>
+                                    <div style="color:#6b7280; font-size:0.875rem; font-weight:bold;">${baseProd.estimatedDelivery || "Less than 10 days"}</div>
+                                </div>
+                                <div style="text-align: right; font-weight:bold; color:#111827;">
+                                    <div style="margin-bottom: 0.25rem;">Qty: ${i.quantity}</div>
+                                    <div>$${(i.price * i.quantity).toLocaleString(undefined, {minimumFractionDigits:2})}</div>
+                                </div>
+                                <button class="delete-item-line-btn" data-assignment-idx="${aIdx}" data-item-idx="${iIdx}" style="background: none; border: none; cursor: pointer; color: #ef4444; margin-left: 1rem; font-size: 0.95rem;">✕</button>
+                            </div>
+                        `;
+                    }).join('');
+                    card.innerHTML = `
+                        <button class="delete-assignment-btn" onclick="removeAssignment(${aIdx})" style="position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; cursor: pointer; color: #ef4444;">🗑️</button>
+                        <h2 style="margin: 0 0 1rem 0; font-size: 1.5rem;">Shipping Assignment: ${assignment.locationName}</h2>
+                        <div>${itemsRowsHtml}</div>
+                    `;
+                    manifestContainer.appendChild(card);
+                    
+                    card.querySelectorAll('.delete-item-line-btn').forEach(btn => {
+                        btn.addEventListener('click', (e) => {
+                            const aIdx = parseInt(btn.getAttribute('data-assignment-idx'));
+                            const iIdx = parseInt(btn.getAttribute('data-item-idx'));
+                            removeItemLineFromAssignment(aIdx, iIdx);
+                        });
+                    });
+                });
 
-            const totalCount = cart.filter(i => i.activeForCheckout).reduce((sum, i) => sum + i.quantity, 0);
-            const assignedCount = shippingAssignments.reduce((sum, a) => sum + a.items.reduce((s, i) => s + i.quantity, 0), 0);
-            document.getElementById('items-assigned-count').textContent = assignedCount;
-            document.getElementById('items-total-count').textContent = totalCount;
+                const totalCount = cart.filter(i => i.activeForCheckout).reduce((sum, i) => sum + i.quantity, 0);
+                const assignedCount = shippingAssignments.reduce((sum, a) => sum + a.items.reduce((s, i) => s + i.quantity, 0), 0);
+                document.getElementById('items-assigned-count').textContent = assignedCount;
+                document.getElementById('items-total-count').textContent = totalCount;
+            }
         }
 
         document.getElementById('assign-items-btn').addEventListener('click', () => {
@@ -1336,27 +1468,56 @@
             const locName = checkedRadio.value;
             let existing = shippingAssignments.find(a => a.locationName === locName);
 
-            if (existing) {
-                targetItems.forEach(newItem => {
-                    let match = existing.items.find(i => i.id === newItem.id);
-                    if (match) match.quantity += newItem.quantity;
-                    else existing.items.push({ ...newItem });
-                });
-            } else {
-                shippingAssignments.push({ locationName: locName, items: targetItems.map(i => ({ ...i })) });
+            if (!existing) {
+                existing = { locationName: locName, items: [] };
+                shippingAssignments.push(existing);
             }
 
-            unassignedItems = unassignedItems.filter(i => !i.selectedForAssignment);
+            unassignedItems.forEach((item, idx) => {
+                if (item.selectedForAssignment) {
+                    let select = document.querySelector(`.assign-qty-picker[data-index="${idx}"]`);
+                    let chosenQty = select ? parseInt(select.value) : 1;
+
+                    let match = existing.items.find(i => i.id === item.id);
+                    if (match) match.quantity += chosenQty;
+                    else existing.items.push({ ...item, quantity: chosenQty });
+
+                    item.remainingQty -= chosenQty;
+                    item.selectedForAssignment = false;
+                }
+            });
+
+            unassignedItems = unassignedItems.filter(i => i.remainingQty > 0);
             renderSplitShipping();
             updatePlaceOrderButtonState();
         });
 
         function removeAssignment(idx) {
             shippingAssignments[idx].items.forEach(item => {
-                item.selectedForAssignment = false;
-                unassignedItems.push(item);
+                let match = unassignedItems.find(u => u.id === item.id);
+                if (match) {
+                    match.remainingQty += item.quantity;
+                } else {
+                    unassignedItems.push({ ...item, remainingQty: item.quantity, selectedForAssignment: false });
+                }
             });
             shippingAssignments.splice(idx, 1);
+            renderSplitShipping();
+            updatePlaceOrderButtonState();
+        }
+
+        function removeItemLineFromAssignment(assignmentIdx, itemIdx) {
+            let targetItem = shippingAssignments[assignmentIdx].items[itemIdx];
+            let match = unassignedItems.find(u => u.id === targetItem.id);
+            if (match) {
+                match.remainingQty += targetItem.quantity;
+            } else {
+                unassignedItems.push({ ...targetItem, remainingQty: targetItem.quantity, selectedForAssignment: false });
+            }
+            shippingAssignments[assignmentIdx].items.splice(itemIdx, 1);
+            if (shippingAssignments[assignmentIdx].items.length === 0) {
+                shippingAssignments.splice(assignmentIdx, 1);
+            }
             renderSplitShipping();
             updatePlaceOrderButtonState();
         }
@@ -1404,8 +1565,67 @@
             cart = [];
             
             document.getElementById('dynamic-order-number').textContent = `Order #TRM-2026-${num}`;
-            document.getElementById('dynamic-delivery-time').textContent = isSplitShipping ? "Multiple delivery windows apply" : "Less than 10 days";
-            document.getElementById('dynamic-ship-to').textContent = shipTo;
+            
+            const confContainer = document.getElementById('confirmation-shipments-container');
+            confContainer.innerHTML = '';
+            const formatConf = (p) => '$' + p.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+            if (isSplitShipping && shippingAssignments.length > 0) {
+                shippingAssignments.forEach((assignment) => {
+                    const card = document.createElement('div');
+                    card.style.cssText = 'border: 1px solid var(--border-color); padding: 1.5rem; background: #f9fafb;';
+                    
+                    let itemsHtml = assignment.items.map(item => {
+                        const product = products.find(p => p.id === item.id) || item;
+                        return `
+                        <div style="display:flex; gap:1.5rem; margin-top:1rem;">
+                            <div style="width:60px; height:60px; border:1px solid #ccc; background:#fff;">${getProductSvg(product)}</div>
+                            <div>
+                                <div style="font-weight:bold; font-size:1.1rem; color:#111827;">${product.name}</div>
+                                <div style="color:#4b5563; font-weight:bold; margin-top:4px;">Qty: ${item.quantity} | ${formatConf(product.price)}</div>
+                            </div>
+                        </div>
+                        `;
+                    }).join('');
+
+                    card.innerHTML = `
+                        <h3 style="margin:0 0 0.25rem 0; font-size:1.1rem;">Shipment: ${assignment.locationName.split(',')[0]}</h3>
+                        <div style="color:#111827; font-size:0.95rem; font-weight:bold; margin-bottom:1rem;">Estimated delivery: Multiple delivery windows apply</div>
+                        <div style="border-top: 1px solid #e5e7eb; padding-top: 0.5rem; margin-top: 0.5rem;">
+                            ${itemsHtml}
+                        </div>
+                    `;
+                    confContainer.appendChild(card);
+                });
+            } else {
+                const card = document.createElement('div');
+                card.style.cssText = 'border: 1px solid var(--border-color); padding: 1.5rem; background: #f9fafb;';
+                
+                let itemsHtml = checkoutItems.map(item => {
+                    const product = products.find(p => p.id === item.id) || item;
+                    const delivery = product.estimatedDelivery || "Less than 10 days";
+                    const weightText = product.weight ? ` | Weight: ${product.weight}` : '';
+                    return `
+                    <div style="display:flex; gap:1.5rem; margin-top:1rem;">
+                        <div style="width:60px; height:60px; border:1px solid #ccc; background:#fff;">${getProductSvg(product)}</div>
+                        <div>
+                            <div style="font-weight:bold; font-size:1.1rem; color:#111827;">${product.name}</div>
+                            <div style="color:#4b5563; font-weight:bold; margin-top:4px;">Qty: ${item.quantity}${weightText} | ${formatConf(product.price)}</div>
+                            <div style="color:#111827; font-size:0.9rem; margin-top:4px;">Estimated delivery: ${delivery}</div>
+                        </div>
+                    </div>
+                    `;
+                }).join('');
+
+                card.innerHTML = `
+                    <h3 style="margin:0 0 0.25rem 0; font-size:1.1rem;">Shipment: ${shipTo.split(',')[0]}</h3>
+                    <div style="color:#111827; font-size:0.95rem; font-weight:bold; margin-bottom:1rem;">Estimated delivery: Less than 10 days</div>
+                    <div style="border-top: 1px solid #e5e7eb; padding-top: 0.5rem; margin-top: 0.5rem;">
+                        ${itemsHtml}
+                    </div>
+                `;
+                confContainer.appendChild(card);
+            }
             
             MapsToView('confirmation-view');
             window.scrollTo(0, 0);
@@ -1571,10 +1791,10 @@
             MapsToView('invoice-view');
         }
 
-        function renderOrderHistory() {
+        function renderOrderHistory(ordersToRender = orderHistory) {
             const container = document.getElementById('orders-history-container');
             container.innerHTML = '';
-            orderHistory.forEach(order => {
+            ordersToRender.forEach(order => {
                 let badgeStyle = order.status === 'Approved' ? 'border:2px solid #16a34a; color:#16a34a; background:#f0fdf4;' : 'border:2px solid #f97316; color:#ea580c; background:#fff7ed;';
                 const div = document.createElement('div');
                 div.style.cssText = 'border:2px solid #d1d5db; border-radius:4px; overflow:hidden; background-color:#fff;';
@@ -1629,7 +1849,15 @@
             const d = document.getElementById('profile-dropdown');
             d.style.display = d.style.display === 'none' ? 'block' : 'none';
         });
-        document.addEventListener('click', () => { document.getElementById('profile-dropdown').style.display = 'none'; });
+        document.addEventListener('click', (e) => { 
+            document.getElementById('profile-dropdown').style.display = 'none'; 
+            
+            const searchInput = document.getElementById('search-input');
+            const searchSuggestions = document.getElementById('search-suggestions');
+            if (searchInput && searchSuggestions && !searchInput.contains(e.target) && !searchSuggestions.contains(e.target)) {
+                searchSuggestions.style.display = 'none';
+            }
+        });
 
         // Clear old listener bindings and re-apply cleanly:
         document.querySelectorAll('.filter-item input').forEach(input => {
