@@ -362,7 +362,53 @@
                 <div id="confirmation-shipments-container" style="display: flex; flex-direction: column; gap: 1.5rem; margin: 1.5rem 0;"></div>
 
                 <div>
-                    <button id="view-manage-order-btn" class="product-btn" style="background-color: #f9f9f9; color: var(--text-color); border: 2px solid var(--border-color); padding: 0.75rem 2rem; font-weight: bold;">View or manage order</button>
+                    <button id="track-package-btn" class="product-btn" style="background-color: #f9f9f9; color: var(--text-color); border: 2px solid var(--border-color); padding: 0.75rem 2rem; font-weight: bold; display: none;" onclick="renderOrderTrackingScreen()">Track Package</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="order-tracking-view" style="display: none; padding: 2rem; max-width: 1200px; margin: 0 auto;">
+            <a href="#" style="text-decoration: underline; color: #4b5563; font-weight: bold; cursor: pointer; display: inline-block; margin-bottom: 2rem;" onclick="event.preventDefault(); MapsToView('confirmation-view')">&larr; Back to Order Confirmation</a>
+            
+            <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+                <!-- Left Column: Tracking Status -->
+                <div style="flex: 0 0 40%; min-width: 300px; padding: 2rem; border: 1px solid var(--border-color); border-radius: 8px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                    <h2 style="margin: 0 0 0.5rem 0; font-size: 2rem; font-weight: bold; color: #111827;">Shipped</h2>
+                    <p style="margin: 0 0 2.5rem 0; color: #4b5563; font-size: 1.1rem;">Package departed from regional logistics facility.</p>
+                    
+                    <div style="position: relative; margin-bottom: 3rem;">
+                        <div style="position: absolute; top: 12px; left: 0; width: 100%; height: 4px; background: #e5e7eb; z-index: 1;"></div>
+                        <div style="position: absolute; top: 12px; left: 0; width: 50%; height: 4px; background: #16a34a; z-index: 2;"></div>
+                        
+                        <div style="display: flex; justify-content: space-between; position: relative; z-index: 3;">
+                            <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                                <div style="width: 28px; height: 28px; border-radius: 50%; background: #16a34a; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 14px;">✓</div>
+                                <span style="font-size: clamp(0.75rem, 3vw, 0.9rem); font-weight: bold; color: #111827; text-align: center; max-width: 80px; line-height: 1.2; display: inline-block;">Being processed</span>
+                            </div>
+                            <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                                <div style="width: 28px; height: 28px; border-radius: 50%; background: #16a34a; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 14px;">✓</div>
+                                <span style="font-size: clamp(0.75rem, 3vw, 0.9rem); font-weight: bold; color: #111827; text-align: center; max-width: 80px; line-height: 1.2; display: inline-block;">Shipped</span>
+                            </div>
+                            <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                                <div style="width: 28px; height: 28px; border-radius: 50%; background: #fff; border: 2px solid #d1d5db; display: flex; align-items: center; justify-content: center;"></div>
+                                <span style="font-size: clamp(0.75rem, 3vw, 0.9rem); color: #6b7280; font-weight: bold; text-align: center; max-width: 80px; line-height: 1.2; display: inline-block;">In transit</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem; color: #4b5563; font-size: 1rem;">
+                        <div><strong>Carrier:</strong> Trimble Express Freight</div>
+                        <div><strong>Tracking ID:</strong> TRK-2026-864242</div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Map Placeholder -->
+                <div style="flex: 1; min-width: 300px;">
+                    <div style="height: 400px; background: #f3f4f6; border: 1px solid #d1d5db; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem;">
+                        <div style="font-size: 4rem; margin-bottom: 1rem;">📍</div>
+                        <h3 style="margin: 0 0 0.5rem 0; font-size: 1.5rem; color: #111827;">Live Delivery Route Map</h3>
+                        <p style="margin: 0; color: #4b5563; font-size: 1.1rem;">Dispatched to Multiple Destination Warehouses</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -480,7 +526,7 @@
             const views = [
                 'home-view', 'gst-tool-view', 'catalog-view', 'product-detail-view',
                 'shopping-cart-view', 'checkout-view', 'confirmation-view',
-                'order-details-view', 'orders-history-view', 'invoice-view'
+                'order-details-view', 'orders-history-view', 'invoice-view', 'order-tracking-view'
             ];
             
             views.forEach(id => {
@@ -504,11 +550,13 @@
                     document.getElementById('nav-right-controls').style.marginRight = '230px';
                     document.getElementById('catalog-view').style.paddingRight = '230px';
                     document.getElementById('product-detail-view').style.paddingRight = '230px';
+                    if (document.getElementById('sticky-footer')) document.getElementById('sticky-footer').style.right = '230px';
                 } else {
                     miniCart.style.display = 'none';
                     document.getElementById('nav-right-controls').style.marginRight = '0px';
                     if (document.getElementById('catalog-view')) document.getElementById('catalog-view').style.paddingRight = '0px';
                     if (document.getElementById('product-detail-view')) document.getElementById('product-detail-view').style.paddingRight = '0px';
+                    if (document.getElementById('sticky-footer')) document.getElementById('sticky-footer').style.right = '0px';
                 }
             }
         }
@@ -814,12 +862,14 @@
                 document.getElementById('nav-right-controls').style.marginRight = '0px';
                 document.getElementById('catalog-view').style.paddingRight = '0px';
                 document.getElementById('product-detail-view').style.paddingRight = '0px';
+                if (document.getElementById('sticky-footer')) document.getElementById('sticky-footer').style.right = '0px';
                 return;
             } else {
                 sidebar.style.display = 'flex';
                 document.getElementById('nav-right-controls').style.marginRight = '230px';
                 document.getElementById('catalog-view').style.paddingRight = '230px';
                 document.getElementById('product-detail-view').style.paddingRight = '230px';
+                if (document.getElementById('sticky-footer')) document.getElementById('sticky-footer').style.right = '230px';
             }
             
             container.innerHTML = '';
@@ -1180,7 +1230,7 @@
                 html += `
                         </div>
                     </div>
-                    <div id="sticky-footer" style="position: fixed; bottom: 0; left: 0; right: 0; background-color: #fff; border-top: 2px solid var(--border-color); padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; z-index: 100; box-shadow: 0 -4px 10px rgba(0,0,0,0.1);">
+                    <div id="sticky-footer" style="position: fixed; bottom: 0; left: 0; right: 0; background-color: #fff; border-top: 2px solid var(--border-color); padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; z-index: 100; box-shadow: 0 -4px 10px rgba(0,0,0,0.1); transition: right 0.3s ease;">
                         <div style="display: flex; gap: 2rem; align-items: center;">
                             <div>Selected Parts: <strong id="sticky-count">0</strong></div>
                             <div style="font-size: 1.5rem;">Total Price: <strong id="sticky-price">$0</strong></div>
@@ -1627,17 +1677,31 @@
                 confContainer.appendChild(card);
             }
             
-            MapsToView('confirmation-view');
+                        MapsToView('confirmation-view');
+            const trackBtn = document.getElementById('track-package-btn');
+            if (trackBtn) {
+                if (lastOrder && lastOrder.status === 'Approved') {
+                    trackBtn.style.display = 'inline-block';
+                } else {
+                    trackBtn.style.display = 'none';
+                }
+            }
             window.scrollTo(0, 0);
         });
 
-        document.getElementById('view-manage-order-btn').addEventListener('click', () => {
-            if (lastOrder) { orderNavigationSource = 'checkout'; showOrderDetails(lastOrder.orderNum); }
-        });
+        
         document.getElementById('confirmation-back-to-catalog').addEventListener('click', (e) => { e.preventDefault(); MapsToView('catalog-view'); });
         document.getElementById('checkout-back-to-cart').addEventListener('click', (e) => { e.preventDefault(); MapsToView('shopping-cart-view'); });
+        
+
 
         // Order Records & Invoice View Dynamic Generator Engine
+
+        function renderOrderTrackingScreen() {
+            console.log('Rendering tracking screen...'); MapsToView('order-tracking-view');
+            window.scrollTo(0, 0);
+        }
+
         function showOrderDetails(orderNum) {
             const order = orderHistory.find(o => o.orderNum === orderNum);
             if (!order) return;
@@ -1697,7 +1761,7 @@
                         <div style="border-top:1px solid #e5e7eb; padding-top:1rem; display:flex; gap:1rem;">
                             <button class="product-btn" style="background:transparent; color:#111827; border:2px solid var(--border-color); padding:0.5rem 1rem;">Buy it again</button>
                             <button style="background:transparent; color:#6b7280; border:none; text-decoration:underline; cursor:pointer;">Report a problem</button>
-                            ${order.status === 'Approved' ? '<button class="product-btn" style="background:#111827; color:#fff; padding:0.5rem 1rem; margin-left:auto;">Track package</button>' : ''}
+                            ${order.status === 'Approved' ? '<button class="product-btn" style="background:#111827; color:#fff; padding:0.5rem 1rem; margin-left:auto;" onclick="renderOrderTrackingScreen()">Track package</button>' : ''}
                         </div>
                     `;
                     container.appendChild(div);
@@ -1723,7 +1787,7 @@
                     <div style="border-top:1px solid #e5e7eb; padding-top:1rem; display:flex; gap:1rem;">
                         <button class="product-btn" style="background:transparent; color:#111827; border:2px solid var(--border-color); padding:0.5rem 1rem;">Buy it again</button>
                         <button style="background:transparent; color:#6b7280; border:none; text-decoration:underline; cursor:pointer;">Report a problem</button>
-                        ${order.status === 'Approved' ? '<button class="product-btn" style="background:#111827; color:#fff; padding:0.5rem 1rem; margin-left:auto;">Track package</button>' : ''}
+                        ${order.status === 'Approved' ? '<button class="product-btn" style="background:#111827; color:#fff; padding:0.5rem 1rem; margin-left:auto;" onclick="renderOrderTrackingScreen()">Track package</button>' : ''}
                     </div>
                 `;
                 container.appendChild(div);
