@@ -579,6 +579,11 @@
             { id: 14, name: "Trimble TSC5 Controller", industry: "Geospatial", system: "Survey & Optical Systems", type: "Controllers & Data Collectors", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Lightweight, Android-based rugged field controller.", price: 4100, estimatedDelivery: "Less than 20 days", inventoryStatus: "Limited Stock" },
             { id: 15, name: "Trimble T100 Tablet", industry: "Civil Construction", system: "Site Positioning Systems (SPS)", type: "Controllers & Data Collectors", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "High-performance 10-inch rugged field tablet.", price: 5800, estimatedDelivery: "Less than 30 days", inventoryStatus: "In Stock" },
             { id: 16, name: "Trimble T7 Tablet", industry: "Building Construction", system: "Survey & Optical Systems", type: "Controllers & Data Collectors", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Rugged 7-inch multi-touch construction tablet.", price: 4700, estimatedDelivery: "Less than 10 days", inventoryStatus: "In Stock" },
+            { id: "kit-bldg-layout-01", name: "Trimble Robotic Layout Kit (RTS Series)", industry: "Building Construction", system: "Optical & Layout Systems", type: "Total Stations & Scanners", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "High-speed indoor/outdoor robotic layout system engineered for MEP, concrete, and general building construction trades.", isKit: true, keywords: ["robotic layout", "MEP", "concrete", "building construction"], price: 25000, estimatedDelivery: "Less than 10 days", inventoryStatus: "In Stock", image: "assets/total-station.jpg" },
+            { id: "bldg-rts773", name: "Trimble RTS773 Robotic Total Station", industry: "Building Construction", system: "Optical & Layout Systems", type: "Total Stations & Scanners", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "3-inch angle accuracy with Trimble VISION camera", partOfKit: "kit-bldg-layout-01", kitDetails: "Robotic Total Station", price: 18500, estimatedDelivery: "Less than 10 days", inventoryStatus: "In Stock" },
+            { id: "bldg-t100", name: "Trimble T100 Field Tablet Controller", industry: "Building Construction", system: "Optical & Layout Systems", type: "Controllers & Data Collectors", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "10-inch outdoor readable screen with FieldLink software", partOfKit: "kit-bldg-layout-01", kitDetails: "Field Tablet Controller", price: 4200, estimatedDelivery: "Less than 10 days", inventoryStatus: "In Stock" },
+            { id: "bldg-mt1000", name: "MT1000 MultiTrack Prism Target", industry: "Building Construction", system: "Optical & Layout Systems", type: "Accessories (Power, Brackets, Cases)", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Active tracking prism for busy job sites", partOfKit: "kit-bldg-layout-01", kitDetails: "Prism Target", price: 1800, estimatedDelivery: "Less than 10 days", inventoryStatus: "In Stock" },
+            { id: "bldg-tripod", name: "Heavy-Duty Aluminum Tripod & Bipod Pack", industry: "Building Construction", system: "Optical & Layout Systems", type: "Accessories (Power, Brackets, Cases)", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Rugged mounting system for total station and rod", partOfKit: "kit-bldg-layout-01", kitDetails: "Tripod & Bipod Pack", price: 500, estimatedDelivery: "Less than 10 days", inventoryStatus: "In Stock" },
             { id: 18, name: "Trimble TDL450B Radio Modem", industry: "Civil Construction", system: "Site Positioning Systems (SPS)", type: "On-Machine Radios & Gateways", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "External UHF data link radio for broadcasting base corrections.", price: 3200, estimatedDelivery: "Less than 20 days", inventoryStatus: "Out of Stock" },
             { id: 19, name: "Trimble SNM941 Connected Site Gateway", industry: "Civil Construction", system: "Machine Control Systems (Earthworks/GCS)", type: "On-Machine Radios & Gateways", brand: "Trimble", machineCompatibility: "Universal", description: "Telematics and cellular gateway for heavy construction equipment.", price: 2100, estimatedDelivery: "Less than 30 days", inventoryStatus: "In Stock" },
             { id: 22, name: "Trimble Dual Slot Battery Charger", industry: "Geospatial", system: "Survey & Optical Systems", type: "Accessories (Power, Brackets, Cases)", brand: "Trimble", machineCompatibility: "None (Pole/Tripod Mounted)", description: "Dual slot smart charger for field batteries.", price: 450, estimatedDelivery: "Less than 20 days", inventoryStatus: "In Stock" },
@@ -1034,19 +1039,31 @@
             filteredProducts.forEach(product => {
                 const card = document.createElement('div');
                 card.className = 'product-card';
-                card.style.cursor = 'pointer';
+                
+                const isKit = product.isKit === true || (product.type && product.type.includes('Kit'));
+                let viewBomBtnHtml = '';
+                if (isKit) {
+                    viewBomBtnHtml = `<button class="product-btn view-bom-btn" data-kit-id="${product.id}" style="background-color: transparent; border: 2px solid #111827; color: #111827; margin-bottom: 8px;">View BOM</button>`;
+                } else {
+                    viewBomBtnHtml = `<button class="product-btn" style="visibility: hidden; margin-bottom: 8px; pointer-events: none;" aria-hidden="true">View BOM</button>`;
+                }
+
                 card.innerHTML = `
                     <div class="product-image" style="background-image: none; padding: 0;">${getProductSvg(product)}</div>
                     <div class="product-info">
                         <div class="product-name" style="font-weight: bold; font-size: 1.1rem; color: #111827;">${product.name}</div>
                         <div class="product-desc" style="color: #4b5563; font-size: 0.95rem; margin-top: 4px; margin-bottom: 8px;">${product.description}</div>
                         ${getInventoryStatusHtml(product.inventoryStatus)}
-                        <div style="color: #111827; font-weight: bold; font-size: 18px; margin-top: auto; margin-bottom: 8px;">$${product.price.toLocaleString()}</div>
-                        <button class="product-btn add-to-cart-btn">Add to cart</button>
+                        <div style="color: #111827; font-weight: bold; font-size: 18px; margin-top: auto; margin-bottom: 12px;">$${product.price.toLocaleString()}</div>
+                        <div class="button-container" style="display: flex; flex-direction: column;">
+                            ${viewBomBtnHtml}
+                            <button class="product-btn add-to-cart-btn">Add to cart</button>
+                        </div>
                     </div>
                 `;
                 card.addEventListener('click', (e) => {
                     if (e.target.closest('.add-to-cart-btn')) { addToCart(product); return; }
+                    if (e.target.closest('.view-bom-btn')) { renderPDP(product.id); return; }
                     renderPDP(product.id);
                 });
                 grid.appendChild(card);
